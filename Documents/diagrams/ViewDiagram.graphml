@@ -101,7 +101,7 @@ getMainWidget</y:MethodLabel>
             </y:ModelParameter>
           </y:NodeLabel>
           <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
-            <y:AttributeLabel>InvoiceList</y:AttributeLabel>
+            <y:AttributeLabel>List&lt;InvoiceData&gt;</y:AttributeLabel>
             <y:MethodLabel>show
 hide
 getMainWidget</y:MethodLabel>
