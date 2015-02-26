@@ -1,10 +1,11 @@
 #include <cppunit/TextTestRunner.h>
-#include <cppunit/TestFixture.h>
-#include <cppunit/TestCaller.h>
+#include "invoicedatasuite.h"
 
 int main()
 {
     CppUnit::TextTestRunner runner;
+
+    runner.addTest(InvoiceDataSuite::suite());
 
     runner.run();
     return 0;

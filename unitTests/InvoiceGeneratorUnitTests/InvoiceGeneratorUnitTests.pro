@@ -14,8 +14,18 @@ CONFIG   -= app_bundle
 
 TEMPLATE = app
 
+unix|win32: LIBS += -lcppunit
+
 INCLUDEPATH += $$PWD/../../src/InvoiceGenerator
 
-SOURCES += main.cpp
+SOURCES += main.cpp \
+    invoicedatasuite.cpp
 
-unix|win32: LIBS += -lcppunit
+HEADERS += invoicedatasuite.h
+
+
+SOURCES += ../../src/InvoiceGenerator/invoicedata.cpp \
+    ../../src/InvoiceGenerator/invoiceitem.cpp
+
+HEADERS +=  ../../src/InvoiceGenerator/invoicedata.h \
+    ../../src/InvoiceGenerator/invoiceitem.h
