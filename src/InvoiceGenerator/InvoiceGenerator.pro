@@ -13,6 +13,8 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-    invoiceitem.cpp
+    invoiceitem.cpp \
+    invoicedata.cpp
 
-HEADERS  += invoiceitem.h
+HEADERS  += invoiceitem.h \
+    invoicedata.h
