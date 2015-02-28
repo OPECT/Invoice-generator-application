@@ -1,5 +1,6 @@
 # Invoice-generator-application
 This is business application, used to generate invoices for already performed transactions.
+This is QT-based project.
 
 It uses customer and goods databases to store and retrieve goods list and its prices and also customer's discounts.
 It generates invoices in Excel format, taken from origin excel file.
@@ -11,3 +12,4 @@ It contains:
 2) GUI prototype (html format)
 3) UML diagrams which represents system design
 4) Sources
+5) Unit Tests
