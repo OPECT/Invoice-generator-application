@@ -17,11 +17,18 @@ SOURCES += main.cpp\
     invoicedata.cpp \
     generalinvoicedata.cpp \
     databasedata.cpp \
-    messageboxerrorreport.cpp
+    messageboxerrorreport.cpp \
+    qtadddatadialog.cpp \
+    qtaddcategorydialog.cpp \
+    qteditboxline.cpp
 
 HEADERS  += invoiceitem.h \
     invoicedata.h \
     generalinvoicedata.h \
     databasedata.h \
     errorreport.h \
-    messageboxerrorreport.h
+    messageboxerrorreport.h \
+    invoicedatalimitations.h \
+    qtadddatadialog.h \
+    qtaddcategorydialog.h \
+    qteditboxline.h
