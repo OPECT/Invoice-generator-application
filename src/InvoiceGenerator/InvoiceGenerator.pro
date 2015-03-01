@@ -14,7 +14,14 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
     invoiceitem.cpp \
-    invoicedata.cpp
+    invoicedata.cpp \
+    generalinvoicedata.cpp \
+    databasedata.cpp \
+    messageboxerrorreport.cpp
 
 HEADERS  += invoiceitem.h \
-    invoicedata.h
+    invoicedata.h \
+    generalinvoicedata.h \
+    databasedata.h \
+    errorreport.h \
+    messageboxerrorreport.h
