@@ -19,8 +19,6 @@ public:
 private:
     virtual void clearData() { m_category.clearText(); }
 
-signals:
-
 public slots:
     void textChanged(const QString &text);
 
