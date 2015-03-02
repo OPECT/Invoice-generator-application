@@ -137,7 +137,7 @@ getMainWidget</y:MethodLabel>
       <data key="d4"/>
       <data key="d6">
         <y:UMLClassNode>
-          <y:Geometry height="96.0" width="145.0" x="448.5" y="566.0"/>
+          <y:Geometry height="96.0" width="145.0" x="453.0" y="566.0"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" modelName="custom" textColor="#000000" visible="true" width="123.69140625" x="10.654296875" y="3.0">AddCategoryDlg<y:LabelModel>
@@ -148,9 +148,8 @@ getMainWidget</y:MethodLabel>
             </y:ModelParameter>
           </y:NodeLabel>
           <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
-            <y:AttributeLabel>categoryName</y:AttributeLabel>
-            <y:MethodLabel>show
-close</y:MethodLabel>
+            <y:AttributeLabel>CategoryName</y:AttributeLabel>
+            <y:MethodLabel>show</y:MethodLabel>
           </y:UML>
         </y:UMLClassNode>
       </data>
@@ -162,7 +161,7 @@ close</y:MethodLabel>
           <y:Geometry height="96.0" width="145.0" x="255.5" y="566.0"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" modelName="custom" textColor="#000000" visible="true" width="90.63916015625" x="27.180419921875" y="3.0">AddItemDlg<y:LabelModel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" modelName="custom" textColor="#000000" visible="true" width="128.4775390625" x="8.26123046875" y="3.0">AddGoodItemDlg<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -170,9 +169,8 @@ close</y:MethodLabel>
             </y:ModelParameter>
           </y:NodeLabel>
           <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
-            <y:AttributeLabel>itemData</y:AttributeLabel>
-            <y:MethodLabel>show
-close</y:MethodLabel>
+            <y:AttributeLabel>GoodItemData</y:AttributeLabel>
+            <y:MethodLabel>show</y:MethodLabel>
           </y:UML>
         </y:UMLClassNode>
       </data>
@@ -181,7 +179,7 @@ close</y:MethodLabel>
       <data key="d4"/>
       <data key="d6">
         <y:UMLClassNode>
-          <y:Geometry height="96.0" width="145.0" x="67.5" y="566.0"/>
+          <y:Geometry height="96.0" width="145.0" x="462.0" y="413.0"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" modelName="custom" textColor="#000000" visible="true" width="87.68115234375" x="28.659423828125" y="3.0">OpenDBDlg<y:LabelModel>
@@ -206,7 +204,7 @@ close</y:MethodLabel>
           <y:Geometry height="96.0" width="145.0" x="255.5" y="413.0"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" modelName="custom" textColor="#000000" visible="true" width="81.28271484375" x="31.858642578125" y="3.0">wndDialog<y:LabelModel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" modelName="custom" textColor="#000000" visible="true" width="78.09619140625" x="33.451904296875" y="3.0">addDialog<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -216,7 +214,28 @@ close</y:MethodLabel>
           <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
             <y:AttributeLabel/>
             <y:MethodLabel>show
-close</y:MethodLabel>
+addPressed</y:MethodLabel>
+          </y:UML>
+        </y:UMLClassNode>
+      </data>
+    </node>
+    <node id="n9">
+      <data key="d4"/>
+      <data key="d6">
+        <y:UMLClassNode>
+          <y:Geometry height="96.0" width="175.25" x="32.125" y="566.0"/>
+          <y:Fill color="#FFCC00" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" modelName="custom" textColor="#000000" visible="true" width="161.091796875" x="7.0791015625" y="3.0">AddCustomerItemDlg<y:LabelModel>
+              <y:SmartNodeLabelModel distance="4.0"/>
+            </y:LabelModel>
+            <y:ModelParameter>
+              <y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="-0.03703090122767855" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/>
+            </y:ModelParameter>
+          </y:NodeLabel>
+          <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
+            <y:AttributeLabel>CustomeritemData</y:AttributeLabel>
+            <y:MethodLabel>show</y:MethodLabel>
           </y:UML>
         </y:UMLClassNode>
       </data>
@@ -251,20 +270,7 @@ close</y:MethodLabel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e2" source="n5" target="n7">
-      <data key="d10">
-        <y:PolyLineEdge>
-          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
-            <y:Point x="521.0" y="545.0"/>
-            <y:Point x="140.0" y="545.0"/>
-          </y:Path>
-          <y:LineStyle color="#000000" type="line" width="1.0"/>
-          <y:Arrows source="none" target="none"/>
-          <y:BendStyle smoothed="false"/>
-        </y:PolyLineEdge>
-      </data>
-    </edge>
-    <edge id="e3" source="n1" target="n0">
+    <edge id="e2" source="n1" target="n0">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="25.0" sy="2.75" tx="0.0" ty="0.0"/>
@@ -274,7 +280,7 @@ close</y:MethodLabel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e4" source="n2" target="n4">
+    <edge id="e3" source="n2" target="n4">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
@@ -287,12 +293,40 @@ close</y:MethodLabel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e5" source="n2" target="n3">
+    <edge id="e4" source="n2" target="n3">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
             <y:Point x="525.5" y="182.7541248"/>
             <y:Point x="-114.0" y="182.7541248"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="none"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e5" source="n1" target="n7">
+      <data key="d9"/>
+      <data key="d10">
+        <y:PolyLineEdge>
+          <y:Path sx="53.75" sy="3.0" tx="0.0" ty="0.0">
+            <y:Point x="381.75" y="392.0"/>
+            <y:Point x="530.5" y="392.0"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="white_diamond" target="none"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e6" source="n9" target="n5">
+      <data key="d9"/>
+      <data key="d10">
+        <y:PolyLineEdge>
+          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
+            <y:Point x="119.75" y="539.0"/>
+            <y:Point x="525.5" y="539.0"/>
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="none"/>
