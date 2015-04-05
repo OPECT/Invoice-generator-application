@@ -6,7 +6,7 @@
 
 QT       += core gui
 
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets xlsx
 
 TARGET = InvoiceGenerator
 TEMPLATE = app
@@ -20,7 +20,8 @@ SOURCES += main.cpp\
     messageboxerrorreport.cpp \
     qtadddatadialog.cpp \
     qtaddcategorydialog.cpp \
-    qteditboxline.cpp
+    qteditboxline.cpp \
+    xlsdocumentwrapper.cpp \
 
 HEADERS  += invoiceitem.h \
     invoicedata.h \
@@ -31,4 +32,6 @@ HEADERS  += invoiceitem.h \
     invoicedatalimitations.h \
     qtadddatadialog.h \
     qtaddcategorydialog.h \
-    qteditboxline.h
+    qteditboxline.h \
+    xlsdocumentwrapper.h \
+    invoicedocumentwrapper.h \

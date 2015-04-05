@@ -10,7 +10,7 @@ public:
     MessageBoxErrorReport(QWidget * parent = 0);
     virtual ~MessageBoxErrorReport();
 
-    virtual void reportError(const QString& msg, ErrorSeverityLevel level);
+    virtual void reportError(const QString& msg, ErrorSeverityLevel level = ErrorReport::ESL_CRITICAL);
 
 private:
     static QString m_trErrorTitle;
