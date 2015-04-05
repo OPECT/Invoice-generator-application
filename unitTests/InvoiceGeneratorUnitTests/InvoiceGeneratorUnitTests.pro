@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core
+QT       += core xlsx
 
 QT       -= gui
 
@@ -19,13 +19,17 @@ unix|win32: LIBS += -lcppunit
 INCLUDEPATH += $$PWD/../../src/InvoiceGenerator
 
 SOURCES += main.cpp \
-    invoicedatasuite.cpp
+    invoicedatasuite.cpp \
+    documentwrappertestsuite.cpp
 
-HEADERS += invoicedatasuite.h
+HEADERS += invoicedatasuite.h \
+    documentwrappertestsuite.h
 
 
 SOURCES += ../../src/InvoiceGenerator/invoicedata.cpp \
-    ../../src/InvoiceGenerator/invoiceitem.cpp
+    ../../src/InvoiceGenerator/invoiceitem.cpp \
+    ../../src/InvoiceGenerator/xlsdocumentwrapper.cpp
 
 HEADERS +=  ../../src/InvoiceGenerator/invoicedata.h \
-    ../../src/InvoiceGenerator/invoiceitem.h
+    ../../src/InvoiceGenerator/invoiceitem.h \
+    ../../src/InvoiceGenerator/xlsdocumentwrapper.h
