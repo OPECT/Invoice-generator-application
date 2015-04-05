@@ -31,7 +31,8 @@
           <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
             <y:AttributeLabel>baState : currentState
 DataBaseManager
-InvoiceList</y:AttributeLabel>
+InvoiceList
+InvoiceHandlerCreator</y:AttributeLabel>
             <y:MethodLabel>switchState
 run</y:MethodLabel>
           </y:UML>
@@ -122,7 +123,7 @@ start</y:MethodLabel>
           </y:NodeLabel>
           <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
             <y:AttributeLabel>baInvoiceListWindow
-InvoiceHandler</y:AttributeLabel>
+DocInvoiceBuilder</y:AttributeLabel>
             <y:MethodLabel>handle
 start
 -generateInvoiceFile</y:MethodLabel>
