@@ -116,6 +116,15 @@ bool XLSDocumentWrapper::writeDouble(quint32 row, quint32 col, double data)
     return m_pCurrentSheet->writeNumeric(row, col, data);
 }
 
+bool XLSDocumentWrapper::write(quint32 row, quint32 col, const QVariant &data)
+{
+    if (!m_pCurrentSheet)
+    {
+        return false;
+    }
+    return m_pCurrentSheet->write(row, col, data);
+}
+
 QVariant XLSDocumentWrapper::readData(quint32 row, quint32 col)
 {
     if (!m_pCurrentSheet)

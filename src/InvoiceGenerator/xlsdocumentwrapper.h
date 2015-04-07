@@ -19,6 +19,7 @@ public:
 
     virtual bool writeString(quint32 row, quint32 col, const QString &data);
     virtual bool writeDouble(quint32 row, quint32 col, double data);
+    virtual bool write(quint32 row, quint32 col, const QVariant &data);
     virtual QVariant readData(quint32 row, quint32 col);
 
     virtual bool isDocumentCreated() { return m_pInvoiceBook != 0 ? true : false; }
