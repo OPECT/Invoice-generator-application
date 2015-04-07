@@ -293,6 +293,10 @@ bool DocumentWrapperTestSuite::writeData_OK()
     {
         return false;
     }
+    if (!doc.write(m_testRow, m_testCol, QVariant("data")))
+    {
+        return false;
+    }
     return true;
 }
 
@@ -300,6 +304,10 @@ bool DocumentWrapperTestSuite::writeData_BAD()
 {
     XLSDocumentWrapper doc(m_correctTemplateFile);
     if (doc.writeDouble(m_testRow, m_testCol, m_doubleData) || doc.writeString(m_testCol, m_testRow, m_stringData))
+    {
+        return false;
+    }
+    if (doc.write(m_testRow, m_testCol, QVariant("data")))
     {
         return false;
     }
@@ -320,6 +328,10 @@ bool DocumentWrapperTestSuite::writeData_BAD()
     {
         return false;
     }
+    if (!doc.write(m_testRow, m_testCol, QVariant()))
+    {
+        return false;
+    }
 
     if (!doc.deleteSheet(m_newSheet))
     {
@@ -330,6 +342,11 @@ bool DocumentWrapperTestSuite::writeData_BAD()
     {
         return false;
     }
+    if (!doc.write(m_testRow, m_testCol, QVariant()))
+    {
+        return false;
+    }
+
     return true;
 }
 
