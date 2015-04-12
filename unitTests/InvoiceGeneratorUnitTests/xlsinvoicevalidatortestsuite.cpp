@@ -27,6 +27,10 @@ bool XLSInvoiceValidatorTestsuite::checkNeededField(quint32 row, quint32 col, QV
     {
         return false;
     }
+    if (!QFile::exists(m_updatedFile))
+    {
+        return false;
+    }
 
     XLSStandardInvoiceValidator validator(m_updatedFile);
 
@@ -34,6 +38,8 @@ bool XLSInvoiceValidatorTestsuite::checkNeededField(quint32 row, quint32 col, QV
     {
         return false;
     }
+
+    QFile::remove(m_updatedFile);
     return true;
 }
 
