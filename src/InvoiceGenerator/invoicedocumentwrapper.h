@@ -19,9 +19,11 @@ public:
     virtual bool writeString(quint32 row, quint32 col, const QString &data) = 0;
     virtual bool writeDouble(quint32 row, quint32 col, double data) = 0;
     virtual bool write(quint32 row, quint32 col, const QVariant &data) = 0;
-    virtual QVariant readData(quint32 row, quint32 col) = 0;
+    virtual QVariant readData(quint32 row, quint32 col) const = 0;
 
     virtual bool isDocumentCreated() = 0;
+
+    const QString& templateFile() { return m_template; }
 
 protected:
     QString m_template;
