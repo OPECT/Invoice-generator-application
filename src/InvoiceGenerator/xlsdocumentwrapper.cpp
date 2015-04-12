@@ -125,7 +125,7 @@ bool XLSDocumentWrapper::write(quint32 row, quint32 col, const QVariant &data)
     return m_pCurrentSheet->write(row, col, data);
 }
 
-QVariant XLSDocumentWrapper::readData(quint32 row, quint32 col)
+QVariant XLSDocumentWrapper::readData(quint32 row, quint32 col) const
 {
     if (!m_pCurrentSheet)
     {
