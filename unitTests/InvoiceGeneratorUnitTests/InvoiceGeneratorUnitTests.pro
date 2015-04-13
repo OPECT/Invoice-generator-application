@@ -21,19 +21,27 @@ INCLUDEPATH += $$PWD/../../src/InvoiceGenerator
 SOURCES += main.cpp \
     invoicedatasuite.cpp \
     documentwrappertestsuite.cpp \
-    xlsinvoicevalidatortestsuite.cpp
+    xlsinvoicevalidatortestsuite.cpp \
+    xlsdocumentbuildertestsuite.cpp \
+    unittestpurposeerrorreport.cpp
 
 HEADERS += invoicedatasuite.h \
     documentwrappertestsuite.h \
-    xlsinvoicevalidatortestsuite.h
+    xlsinvoicevalidatortestsuite.h \
+    xlsdocumentbuildertestsuite.h \
+    unittestpurposeerrorreport.h
 
 
 SOURCES += ../../src/InvoiceGenerator/invoicedata.cpp \
     ../../src/InvoiceGenerator/invoiceitem.cpp \
     ../../src/InvoiceGenerator/xlsdocumentwrapper.cpp \
-    ../../src/InvoiceGenerator/xlsstandardinvoicevalidator.cpp
+    ../../src/InvoiceGenerator/xlsstandardinvoicevalidator.cpp \
+    ../../src/InvoiceGenerator/xlstandardinvoiceformatbuilder.cpp \
+    ../../src/InvoiceGenerator/docinvoicebuilder.cpp
 
 HEADERS +=  ../../src/InvoiceGenerator/invoicedata.h \
     ../../src/InvoiceGenerator/invoiceitem.h \
     ../../src/InvoiceGenerator/xlsdocumentwrapper.h \
-    ../../src/InvoiceGenerator/xlsstandardinvoicevalidator.h
+    ../../src/InvoiceGenerator/xlsstandardinvoicevalidator.h \
+    ../../src/InvoiceGenerator/xlstandardinvoiceformatbuilder.h \
+    ../../src/InvoiceGenerator/docinvoicebuilder.h

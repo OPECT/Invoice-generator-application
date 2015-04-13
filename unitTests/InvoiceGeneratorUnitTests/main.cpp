@@ -2,6 +2,7 @@
 #include "invoicedatasuite.h"
 #include "documentwrappertestsuite.h"
 #include "xlsinvoicevalidatortestsuite.h"
+#include "xlsdocumentbuildertestsuite.h"
 
 int main()
 {
@@ -10,6 +11,7 @@ int main()
     runner.addTest(InvoiceDataSuite::suite());
     runner.addTest(DocumentWrapperTestSuite::suite());
     runner.addTest(XLSInvoiceValidatorTestsuite::suite());
+    runner.addTest(XLSDocumentBuilderTestSuite::suite());
 
     runner.run();
     return 0;
