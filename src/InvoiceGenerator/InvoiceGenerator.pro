@@ -22,7 +22,10 @@ SOURCES += main.cpp\
     qtaddcategorydialog.cpp \
     qteditboxline.cpp \
     xlsdocumentwrapper.cpp \
-    xlsstandardinvoicevalidator.cpp
+    xlsstandardinvoicevalidator.cpp \
+    standardxlsformatinvoicehandlercreator.cpp \
+    xlstandardinvoiceformatbuilder.cpp \
+    docinvoicebuilder.cpp
 
 HEADERS  += invoiceitem.h \
     invoicedata.h \
@@ -34,6 +37,10 @@ HEADERS  += invoiceitem.h \
     qtadddatadialog.h \
     qtaddcategorydialog.h \
     qteditboxline.h \
+    invoicehandlercreator.h \
+    standardxlsformatinvoicehandlercreator.h \
+    docinvoicebuilder.h \
+    xlstandardinvoiceformatbuilder.h \
     xlsdocumentwrapper.h \
     invoicedocumentwrapper.h \
     invoicetemplatevalidator.h \
