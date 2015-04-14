@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui sql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets xlsx
 
@@ -25,7 +25,9 @@ SOURCES += main.cpp\
     xlsstandardinvoicevalidator.cpp \
     standardxlsformatinvoicehandlercreator.cpp \
     xlstandardinvoiceformatbuilder.cpp \
-    docinvoicebuilder.cpp
+    docinvoicebuilder.cpp \
+    qsqlgoodsmodel.cpp \
+    qsqlcustomermodel.cpp
 
 HEADERS  += invoiceitem.h \
     invoicedata.h \
@@ -44,4 +46,6 @@ HEADERS  += invoiceitem.h \
     xlsdocumentwrapper.h \
     invoicedocumentwrapper.h \
     invoicetemplatevalidator.h \
-    xlsstandardinvoicevalidator.h
+    xlsstandardinvoicevalidator.h \
+    qsqlgoodsmodel.h \
+    qsqlcustomermodel.h
