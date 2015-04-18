@@ -3,6 +3,7 @@
 #include "documentwrappertestsuite.h"
 #include "xlsinvoicevalidatortestsuite.h"
 #include "xlsdocumentbuildertestsuite.h"
+#include "initialsettingstestsuite.h"
 
 int main()
 {
@@ -12,6 +13,7 @@ int main()
     runner.addTest(DocumentWrapperTestSuite::suite());
     runner.addTest(XLSInvoiceValidatorTestsuite::suite());
     runner.addTest(XLSDocumentBuilderTestSuite::suite());
+    runner.addTest(InitialSettingsTestSuite::suite());
 
     runner.run();
     return 0;

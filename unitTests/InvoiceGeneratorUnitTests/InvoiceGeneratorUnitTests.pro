@@ -23,13 +23,16 @@ SOURCES += main.cpp \
     documentwrappertestsuite.cpp \
     xlsinvoicevalidatortestsuite.cpp \
     xlsdocumentbuildertestsuite.cpp \
+    initialsettingstestsuite.cpp \
     unittestpurposeerrorreport.cpp
 
 HEADERS += invoicedatasuite.h \
     documentwrappertestsuite.h \
     xlsinvoicevalidatortestsuite.h \
     xlsdocumentbuildertestsuite.h \
-    unittestpurposeerrorreport.h
+    unittestpurposeerrorreport.h \
+    initialsettingstestsuite.h \
+    unittestpurposeinitialsettings.h
 
 
 SOURCES += ../../src/InvoiceGenerator/invoicedata.cpp \
@@ -37,11 +40,15 @@ SOURCES += ../../src/InvoiceGenerator/invoicedata.cpp \
     ../../src/InvoiceGenerator/xlsdocumentwrapper.cpp \
     ../../src/InvoiceGenerator/xlsstandardinvoicevalidator.cpp \
     ../../src/InvoiceGenerator/xlstandardinvoiceformatbuilder.cpp \
-    ../../src/InvoiceGenerator/docinvoicebuilder.cpp
+    ../../src/InvoiceGenerator/docinvoicebuilder.cpp \
+    ../../src/InvoiceGenerator/initialsettings.cpp \
+    ../../src/InvoiceGenerator/generalinvoicedata.cpp \
+    ../../src/InvoiceGenerator/databasedata.cpp
 
 HEADERS +=  ../../src/InvoiceGenerator/invoicedata.h \
     ../../src/InvoiceGenerator/invoiceitem.h \
     ../../src/InvoiceGenerator/xlsdocumentwrapper.h \
     ../../src/InvoiceGenerator/xlsstandardinvoicevalidator.h \
     ../../src/InvoiceGenerator/xlstandardinvoiceformatbuilder.h \
-    ../../src/InvoiceGenerator/docinvoicebuilder.h
+    ../../src/InvoiceGenerator/docinvoicebuilder.h \
+    ../../src/InvoiceGenerator/initialsettings.h
