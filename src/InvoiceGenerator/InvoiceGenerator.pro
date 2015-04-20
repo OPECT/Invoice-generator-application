@@ -28,7 +28,8 @@ SOURCES += main.cpp\
     docinvoicebuilder.cpp \
     qsqlgoodsmodel.cpp \
     qsqlcustomermodel.cpp \
-    initialsettings.cpp
+    initialsettings.cpp \
+    tablehandler.cpp
 
 HEADERS  += invoiceitem.h \
     invoicedata.h \
@@ -50,4 +51,5 @@ HEADERS  += invoiceitem.h \
     xlsstandardinvoicevalidator.h \
     qsqlgoodsmodel.h \
     qsqlcustomermodel.h \
-    initialsettings.h
+    initialsettings.h \
+    tablehandler.h
