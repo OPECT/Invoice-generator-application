@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core xlsx
+QT       += core xlsx sql
 
 QT       -= gui
 
@@ -24,7 +24,9 @@ SOURCES += main.cpp \
     xlsinvoicevalidatortestsuite.cpp \
     xlsdocumentbuildertestsuite.cpp \
     initialsettingstestsuite.cpp \
-    unittestpurposeerrorreport.cpp
+    unittestpurposeerrorreport.cpp \
+    databasemanagertestsuite.cpp \
+    sqltablehandlertestsuite.cpp
 
 HEADERS += invoicedatasuite.h \
     documentwrappertestsuite.h \
@@ -32,7 +34,9 @@ HEADERS += invoicedatasuite.h \
     xlsdocumentbuildertestsuite.h \
     unittestpurposeerrorreport.h \
     initialsettingstestsuite.h \
-    unittestpurposeinitialsettings.h
+    unittestpurposeinitialsettings.h \
+    databasemanagertestsuite.h \
+    sqltablehandlertestsuite.h
 
 
 SOURCES += ../../src/InvoiceGenerator/invoicedata.cpp \
@@ -43,7 +47,9 @@ SOURCES += ../../src/InvoiceGenerator/invoicedata.cpp \
     ../../src/InvoiceGenerator/docinvoicebuilder.cpp \
     ../../src/InvoiceGenerator/initialsettings.cpp \
     ../../src/InvoiceGenerator/generalinvoicedata.cpp \
-    ../../src/InvoiceGenerator/databasedata.cpp
+    ../../src/InvoiceGenerator/databasedata.cpp \
+    ../../src/InvoiceGenerator/databasemanager.cpp \
+    ../../src/InvoiceGenerator/tablehandler.cpp
 
 HEADERS +=  ../../src/InvoiceGenerator/invoicedata.h \
     ../../src/InvoiceGenerator/invoiceitem.h \
@@ -51,4 +57,6 @@ HEADERS +=  ../../src/InvoiceGenerator/invoicedata.h \
     ../../src/InvoiceGenerator/xlsstandardinvoicevalidator.h \
     ../../src/InvoiceGenerator/xlstandardinvoiceformatbuilder.h \
     ../../src/InvoiceGenerator/docinvoicebuilder.h \
-    ../../src/InvoiceGenerator/initialsettings.h
+    ../../src/InvoiceGenerator/initialsettings.h \
+    ../../src/InvoiceGenerator/databasemanager.h \
+    ../../src/InvoiceGenerator/tablehandler.h

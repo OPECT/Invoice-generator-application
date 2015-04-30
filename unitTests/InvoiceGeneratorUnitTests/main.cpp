@@ -4,6 +4,8 @@
 #include "xlsinvoicevalidatortestsuite.h"
 #include "xlsdocumentbuildertestsuite.h"
 #include "initialsettingstestsuite.h"
+#include "databasemanagertestsuite.h"
+#include "sqltablehandlertestsuite.h"
 
 int main()
 {
@@ -14,6 +16,8 @@ int main()
     runner.addTest(XLSInvoiceValidatorTestsuite::suite());
     runner.addTest(XLSDocumentBuilderTestSuite::suite());
     runner.addTest(InitialSettingsTestSuite::suite());
+    runner.addTest(DataBaseManagerTestSuite::suite());
+    runner.addTest(SQLTableHandlerTestSuite::suite());
 
     runner.run();
     return 0;

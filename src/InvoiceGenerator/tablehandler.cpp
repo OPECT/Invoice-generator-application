@@ -2,13 +2,13 @@
 #include <QSqlQuery>
 #include <QSqlDatabase>
 
-TableHandler::TableHandler(const QString &table, QSqlDatabase& db, QObject *parent) :
+TableHandler::TableHandler(const QString &table, const QSqlDatabase& db, QObject *parent) :
     QObject(parent), m_tableName(table), m_db(db)
 {
 }
 
 bool TableHandler::select(const QString& criteria, const QString& filter, bool showUnique,
-                          QList<QVariant> &result)
+                          QList<QVariant> &result) const
 {
     QSqlQuery query(m_db);
     QString selectPart = QString("SELECT") + (showUnique ? " DISTINCT " : " ");
@@ -24,7 +24,7 @@ bool TableHandler::select(const QString& criteria, const QString& filter, bool s
     return bRes;
 }
 
-bool TableHandler::isTableExist()
+bool TableHandler::isTableExist() const
 {
     QSqlQuery query(m_db);
     return query.exec("SELECT * from " + m_tableName);
