@@ -29,7 +29,8 @@ SOURCES += main.cpp\
     qsqlgoodsmodel.cpp \
     qsqlcustomermodel.cpp \
     initialsettings.cpp \
-    tablehandler.cpp
+    tablehandler.cpp \
+    databasemanager.cpp
 
 HEADERS  += invoiceitem.h \
     invoicedata.h \
@@ -52,4 +53,5 @@ HEADERS  += invoiceitem.h \
     qsqlgoodsmodel.h \
     qsqlcustomermodel.h \
     initialsettings.h \
-    tablehandler.h
+    tablehandler.h \
+    databasemanager.h

@@ -1,7 +1,6 @@
 #ifndef TABLEHANDLER_H
 #define TABLEHANDLER_H
 
-#include <QObject>
 #include <QString>
 #include <QVariant>
 #include <QList>
