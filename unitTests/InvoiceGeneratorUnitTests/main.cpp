@@ -6,6 +6,7 @@
 #include "initialsettingstestsuite.h"
 #include "databasemanagertestsuite.h"
 #include "sqltablehandlertestsuite.h"
+#include "pricecalculationtestsuite.h"
 
 int main()
 {
@@ -18,6 +19,7 @@ int main()
     runner.addTest(InitialSettingsTestSuite::suite());
     runner.addTest(DataBaseManagerTestSuite::suite());
     runner.addTest(SQLTableHandlerTestSuite::suite());
+    runner.addTest(pricecalculationtestsuite::suite());
 
     runner.run();
     return 0;

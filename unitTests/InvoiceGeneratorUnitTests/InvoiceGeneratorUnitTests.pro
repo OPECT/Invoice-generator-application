@@ -26,7 +26,8 @@ SOURCES += main.cpp \
     initialsettingstestsuite.cpp \
     unittestpurposeerrorreport.cpp \
     databasemanagertestsuite.cpp \
-    sqltablehandlertestsuite.cpp
+    sqltablehandlertestsuite.cpp \
+    pricecalculationtestsuite.cpp
 
 HEADERS += invoicedatasuite.h \
     documentwrappertestsuite.h \
@@ -36,7 +37,8 @@ HEADERS += invoicedatasuite.h \
     initialsettingstestsuite.h \
     unittestpurposeinitialsettings.h \
     databasemanagertestsuite.h \
-    sqltablehandlertestsuite.h
+    sqltablehandlertestsuite.h \
+    pricecalculationtestsuite.h
 
 
 SOURCES += ../../src/InvoiceGenerator/invoicedata.cpp \
@@ -49,7 +51,9 @@ SOURCES += ../../src/InvoiceGenerator/invoicedata.cpp \
     ../../src/InvoiceGenerator/generalinvoicedata.cpp \
     ../../src/InvoiceGenerator/databasedata.cpp \
     ../../src/InvoiceGenerator/databasemanager.cpp \
-    ../../src/InvoiceGenerator/tablehandler.cpp
+    ../../src/InvoiceGenerator/tablehandler.cpp \
+    ../../src/InvoiceGenerator/pricecalculation.cpp \
+    ../../src/InvoiceGenerator/pricecalculationwithdiscount.cpp
 
 HEADERS +=  ../../src/InvoiceGenerator/invoicedata.h \
     ../../src/InvoiceGenerator/invoiceitem.h \
