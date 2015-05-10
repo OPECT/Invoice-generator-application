@@ -30,7 +30,9 @@ SOURCES += main.cpp\
     qsqlcustomermodel.cpp \
     initialsettings.cpp \
     tablehandler.cpp \
-    databasemanager.cpp
+    databasemanager.cpp \
+    pricecalculation.cpp \
+    pricecalculationwithdiscount.cpp
 
 HEADERS  += invoiceitem.h \
     invoicedata.h \
@@ -54,4 +56,6 @@ HEADERS  += invoiceitem.h \
     qsqlcustomermodel.h \
     initialsettings.h \
     tablehandler.h \
-    databasemanager.h
+    databasemanager.h \
+    pricecalculation.h \
+    pricecalculationwithdiscount.h
