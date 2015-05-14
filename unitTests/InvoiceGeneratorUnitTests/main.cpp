@@ -19,7 +19,7 @@ int main()
     runner.addTest(InitialSettingsTestSuite::suite());
     runner.addTest(DataBaseManagerTestSuite::suite());
     runner.addTest(SQLTableHandlerTestSuite::suite());
-    runner.addTest(pricecalculationtestsuite::suite());
+    runner.addTest(PriceCalculationTestSuite::suite());
 
     runner.run();
     return 0;
