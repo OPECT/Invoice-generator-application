@@ -12,7 +12,7 @@ TARGET = InvoiceGenerator
 TEMPLATE = app
 
 
-SOURCES += main.cpp\
+SOURCES += main.cpp \
     invoiceitem.cpp \
     invoicedata.cpp \
     generalinvoicedata.cpp \
@@ -32,7 +32,9 @@ SOURCES += main.cpp\
     tablehandler.cpp \
     databasemanager.cpp \
     pricecalculation.cpp \
-    pricecalculationwithdiscount.cpp
+    pricecalculationwithdiscount.cpp \
+    qtaddgooditemdialog.cpp \
+    bautils.cpp
 
 HEADERS  += invoiceitem.h \
     invoicedata.h \
@@ -58,4 +60,7 @@ HEADERS  += invoiceitem.h \
     tablehandler.h \
     databasemanager.h \
     pricecalculation.h \
-    pricecalculationwithdiscount.h
+    pricecalculationwithdiscount.h \
+    qtaddgooditemdialog.h \
+    bautils.h \
+    badefines.h

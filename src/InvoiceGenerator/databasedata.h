@@ -25,12 +25,18 @@ public:
     const QString& dataBaseFile() const { return m_dataBaseFile; }
     void dataBaseFile(const QString& file) { m_dataBaseFile = file; }
 
+    const QString& goodNameColumn() const { return m_goodsNameColumn; }
+    const QString& goodCategoryColumn() const { return m_goodsCategoryColumn; }
+
 private:
     QString m_customersTableName;
     QString m_goodsTableName;
     QString m_userName;
     QString m_password;
     QString m_dataBaseFile;
+
+    QString m_goodsNameColumn;
+    QString m_goodsCategoryColumn;
 };
 
 #endif // DATABASEDATA_H

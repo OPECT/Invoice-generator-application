@@ -1,7 +1,6 @@
 #include "qtadddatadialog.h"
 
-QTAddDataDialog::QTAddDataDialog(QWidget *parent) :
-    QDialog(parent)
+QTAddDataDialog::QTAddDataDialog(QWidget *parent) : QDialog(parent)
 {
 }
 
