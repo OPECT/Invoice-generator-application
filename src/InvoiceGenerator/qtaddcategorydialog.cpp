@@ -4,7 +4,7 @@
 
 QTAddCategoryDialog::QTAddCategoryDialog(const QString &title, const QString &description, quint32 dataLimit,
                                                              QWidget *parent) :
-    QTAddDataDialog(parent), m_category(description, dataLimit, this), m_addBtn(tr("Add")), m_cancelBtn(tr("Cancel"))
+    QTAddDataDialog(parent), m_category(description, dataLimit, 0, this), m_addBtn(tr("Add")), m_cancelBtn(tr("Cancel"))
 {
     m_addBtn.setEnabled(false);
     connect(&m_cancelBtn, SIGNAL(clicked()), this, SLOT(close()));

@@ -3,9 +3,9 @@
 
 #include "qtadddatadialog.h"
 #include <QString>
+#include <QDoubleValidator>
 
 class QComboBox;
-class QPushButton;
 class QHBoxLayout;
 class QTEditBoxLine;
 class TableHandler;
@@ -29,7 +29,6 @@ private:
 
     QHBoxLayout* createGoodTypeLayout();
     QHBoxLayout* createGoodCategoryLayout();
-    QHBoxLayout* createButtonsLayout();
 
     bool isNameCorrect(const QString& name);
     bool isPriceCorrect(const QString& price);
@@ -48,10 +47,10 @@ private:
 
     QTEditBoxLine* m_goodNameLine;
     QTEditBoxLine* m_goodPriceLine;
-    QPushButton* m_addBtn;
-    QPushButton* m_cancelBtn;
     QComboBox* m_goodTypeCombo;
     QComboBox* m_goodCategoryCombo;
+
+    QDoubleValidator m_priceValidator;
 };
 
 #endif // QTADDGOODITEMDIALOG_H

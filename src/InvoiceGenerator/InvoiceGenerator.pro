@@ -34,7 +34,8 @@ SOURCES += main.cpp \
     pricecalculation.cpp \
     pricecalculationwithdiscount.cpp \
     qtaddgooditemdialog.cpp \
-    bautils.cpp
+    bautils.cpp \
+    qtaddcustomerdialog.cpp
 
 HEADERS  += invoiceitem.h \
     invoicedata.h \
@@ -63,4 +64,5 @@ HEADERS  += invoiceitem.h \
     pricecalculationwithdiscount.h \
     qtaddgooditemdialog.h \
     bautils.h \
-    badefines.h
+    badefines.h \
+    qtaddcustomerdialog.h

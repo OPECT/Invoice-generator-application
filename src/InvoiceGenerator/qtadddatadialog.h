@@ -3,6 +3,9 @@
 
 #include <QDialog>
 
+class QHBoxLayout;
+class QPushButton;
+
 class QTAddDataDialog : public QDialog
 {
     Q_OBJECT
@@ -20,6 +23,13 @@ signals:
 
 public slots:
     void addConfirmed();
+
+protected:
+    QHBoxLayout* createButtonsLayout();
+
+protected:
+    QPushButton* m_addBtn;
+    QPushButton* m_cancelBtn;
 };
 
 #endif // ADDDATADIALOG_H

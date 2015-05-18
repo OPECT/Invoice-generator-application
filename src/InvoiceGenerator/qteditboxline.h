@@ -7,11 +7,13 @@
 #include <QLineEdit>
 #include <QHBoxLayout>
 
+class QValidator;
+
 class QTEditBoxLine : public QObject
 {
     Q_OBJECT
 public:
-    explicit QTEditBoxLine(QString label, quint32 editLimit, QObject *parent = 0);
+    explicit QTEditBoxLine(QString label, quint32 editLimit, const QValidator* validator = 0, QObject* parent = 0);
 
     void setEditText(QString text) { m_edit.setText(text); }
     void clearText() { m_edit.clear(); }

@@ -27,6 +27,8 @@ public:
 
     const QString& goodNameColumn() const { return m_goodsNameColumn; }
     const QString& goodCategoryColumn() const { return m_goodsCategoryColumn; }
+    const QString& customerNameColumn() const { return m_customerNameColumn; }
+    const QString& customerRegionColumn() const { return m_customerRegionColumn; }
 
 private:
     QString m_customersTableName;
@@ -37,6 +39,8 @@ private:
 
     QString m_goodsNameColumn;
     QString m_goodsCategoryColumn;
+    QString m_customerNameColumn;
+    QString m_customerRegionColumn;
 };
 
 #endif // DATABASEDATA_H

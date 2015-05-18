@@ -1,13 +1,14 @@
 #include "qteditboxline.h"
 
 
-QTEditBoxLine::QTEditBoxLine(QString label, quint32 editLimit, QObject *parent) :
+QTEditBoxLine::QTEditBoxLine(QString label, quint32 editLimit, const QValidator* validator, QObject *parent) :
     QObject(parent), m_layout(), m_info(label), m_edit()
 {
     m_info.setMinimumWidth(label.count() * m_info.font().pointSize());
 
     m_edit.setMaximumWidth(editLimit * m_edit.font().pointSize());
     m_edit.setMaxLength(editLimit);
+    m_edit.setValidator(validator);
 
     m_layout.addWidget(&m_info);
     m_layout.addWidget(&m_edit);

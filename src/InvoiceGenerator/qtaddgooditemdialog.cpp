@@ -19,10 +19,11 @@ QTAddGoodItemDialog::QTAddGoodItemDialog(const QString& title, const TableHandle
     QTAddDataDialog(parent), m_table(goodTable), m_goodTypeMsg(tr("Good Type")), m_goodNameMsg(tr("Good name")),
     m_goodPriceMsg(tr("Good price")), m_goodCategoryMsg(tr("Good category")),
     m_goodCategoryEnterMsg(tr("Enter new category")), m_categoryColumn(dbData.goodCategoryColumn()),
-    m_nameColumn(dbData.goodNameColumn())
+    m_nameColumn(dbData.goodNameColumn()), m_priceValidator()
 {
+    m_priceValidator.setNotation(QDoubleValidator::StandardNotation);
     m_goodNameLine = new QTEditBoxLine(m_goodNameMsg, MAX_GOOD_NAME_LENGTH);
-    m_goodPriceLine = new QTEditBoxLine(m_goodPriceMsg, MAX_FLOAT_NUMBER_LENGTH);
+    m_goodPriceLine = new QTEditBoxLine(m_goodPriceMsg, MAX_FLOAT_NUMBER_LENGTH, &m_priceValidator);
 
     connect(m_goodNameLine, SIGNAL(editBoxChanged(const QString&)), this, SLOT(activateAddButton()));
     connect(m_goodPriceLine, SIGNAL(editBoxChanged(const QString&)), this, SLOT(activateAddButton()));
@@ -91,23 +92,6 @@ QHBoxLayout* QTAddGoodItemDialog::createGoodCategoryLayout()
     comboLayout->addStretch();
 
     return comboLayout;
-}
-
-QHBoxLayout* QTAddGoodItemDialog::createButtonsLayout()
-{
-    m_addBtn = new QPushButton(tr("Add"));
-    m_cancelBtn = new QPushButton(tr("Cancel"));
-
-    m_addBtn->setEnabled(false);
-    connect(m_cancelBtn, SIGNAL(clicked()), this, SLOT(close()));
-    connect(m_addBtn, SIGNAL(clicked()), this, SLOT(addConfirmed()));
-
-    QHBoxLayout *btnLayout = new QHBoxLayout();
-    btnLayout->addStretch();
-    btnLayout->addWidget(m_addBtn);
-    btnLayout->addWidget(m_cancelBtn);
-
-    return btnLayout;
 }
 
 bool QTAddGoodItemDialog::isNameCorrect(const QString& name)
