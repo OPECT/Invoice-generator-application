@@ -43,7 +43,6 @@ HEADERS  += invoiceitem.h \
     databasedata.h \
     errorreport.h \
     messageboxerrorreport.h \
-    invoicedatalimitations.h \
     qtadddatadialog.h \
     qtaddcategorydialog.h \
     qteditboxline.h \

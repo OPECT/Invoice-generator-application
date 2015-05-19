@@ -94,6 +94,7 @@ void QTAddCustomerDialog::itemChoosed(qint32 index)
     {
         m_customerRegionCombo->setItemText(index, "");
         m_customerRegionCombo->setEditable(true);
+        m_customerRegionCombo->lineEdit()->setMaxLength(MAX_CUSTOMER_REGION_NAME_LENGTH);
     }
     else
     {

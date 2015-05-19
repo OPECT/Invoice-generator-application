@@ -125,6 +125,7 @@ void QTAddGoodItemDialog::itemChoosed(qint32 index)
     {
         m_goodCategoryCombo->setItemText(index, "");
         m_goodCategoryCombo->setEditable(true);
+        m_goodCategoryCombo->lineEdit()->setMaxLength(MAX_GOOD_CATEGORY_NAME_LENGTH);
     }
     else
     {
