@@ -33,7 +33,7 @@ void InitialSettings::propagateGeneralInfo(GeneralInvoiceData &data)
 {
     m_settings.beginGroup(m_generalGroupKey);
     data.companyName(m_settings.value(m_generalCompanyNameKey, "").toString());
-    data.invoiceType(static_cast<GeneralInvoiceData::InvoiceType>(m_settings.value(m_generalInvoiceTypeKey,
+    data.invoiceType(static_cast<INVOICE_TYPE>(m_settings.value(m_generalInvoiceTypeKey,
                                                                                    0).toInt()));
     data.traderName(m_settings.value(m_generalTraderNameKey, "").toString());
     data.traderSecondName(m_settings.value(m_generalTraderSurnameKey, "").toString());

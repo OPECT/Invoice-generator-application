@@ -10,7 +10,7 @@
 #include <QLabel>
 #include <QHBoxLayout>
 #include <QVBoxLayout>
-#include <QHashIterator>
+#include <QMapIterator>
 #include <QList>
 #include <QVariant>
 
@@ -47,7 +47,7 @@ QHBoxLayout* QTAddGoodItemDialog::createGoodTypeLayout()
     m_goodTypeCombo = new QComboBox();
     QLabel* goodTypeLabel = new QLabel(m_goodTypeMsg);
 
-    QHashIterator<Utils::GOOT_TYPE, QString> iter(goodTypes());
+    QMapIterator<GOOT_TYPE, QString> iter(goodTypes());
 
     while (iter.hasNext())
     {

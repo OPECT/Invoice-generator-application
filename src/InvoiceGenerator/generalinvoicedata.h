@@ -3,22 +3,20 @@
 
 #include <QDate>
 #include <QString>
+#include "batypes.h"
 
 class GeneralInvoiceData
 {
 public:
-    enum InvoiceType { IT_NONE, IT_SimpleInvoice };
-
-public:
     GeneralInvoiceData();
-    GeneralInvoiceData(const QDate &date, InvoiceType type, quint32 id, const QString &company, const QString &name,
+    GeneralInvoiceData(const QDate &date, INVOICE_TYPE type, quint32 id, const QString &company, const QString &name,
                        const QString &secondName);
 
     const QDate& date() const { return m_date; }
     void date(const QDate& currentDate) { m_date = currentDate; }
 
-    InvoiceType invoiceType() const { return m_type; }
-    void invoiceType(InvoiceType type) { m_type = type; }
+    INVOICE_TYPE invoiceType() const { return m_type; }
+    void invoiceType(INVOICE_TYPE type) { m_type = type; }
 
     quint32 invoiceId() const { return m_invoiceId; }
     void invoiceId(quint32 id) { m_invoiceId = id; }
@@ -34,7 +32,7 @@ public:
 
 private:
     QDate m_date;
-    InvoiceType m_type;
+    INVOICE_TYPE m_type;
     quint32 m_invoiceId;
     QString m_companyName;
     QString m_traderName;

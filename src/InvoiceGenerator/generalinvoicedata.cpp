@@ -5,7 +5,7 @@ GeneralInvoiceData::GeneralInvoiceData()
 {
 }
 
-GeneralInvoiceData::GeneralInvoiceData(const QDate &date, InvoiceType type, quint32 id, const QString &company,
+GeneralInvoiceData::GeneralInvoiceData(const QDate &date, INVOICE_TYPE type, quint32 id, const QString &company,
                                        const QString &name, const QString &secondName)
     : m_date(date), m_type(type), m_invoiceId(id), m_companyName(company), m_traderName(name),
       m_traderSecondName(secondName)
