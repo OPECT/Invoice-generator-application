@@ -32,7 +32,7 @@ private:
     bool checkKeyField(const QSettings& settings, const QString &key, const QVariant &data);
 
 private:
-    GeneralInvoiceData::InvoiceType m_invoiceType;
+    INVOICE_TYPE m_invoiceType;
     quint32 m_invoiceID;
     QString m_company;
     QString m_traderFirstName;
@@ -43,7 +43,7 @@ private:
     QString m_passwrod;
     QString m_fileName;
 
-    GeneralInvoiceData::InvoiceType m_invoiceTypeEmpty;
+    INVOICE_TYPE m_invoiceTypeEmpty;
     QString m_empty;
 };
 

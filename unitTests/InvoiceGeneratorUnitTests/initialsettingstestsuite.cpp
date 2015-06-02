@@ -4,10 +4,10 @@
 
 #include <cppunit/TestCaller.h>
 
-InitialSettingsTestSuite::InitialSettingsTestSuite() : m_invoiceType(GeneralInvoiceData::IT_SimpleInvoice),
+InitialSettingsTestSuite::InitialSettingsTestSuite() : m_invoiceType(IT_SimpleInvoice),
     m_invoiceID(1234), m_company("Some Company"), m_traderFirstName("Trader Name"),
     m_traderSecondName("Trader Surname"), m_tableName("DB Table"), m_userName("User"), m_passwrod("Password"),
-    m_fileName("DBFile.ext"), m_invoiceTypeEmpty(GeneralInvoiceData::IT_NONE), m_empty()
+    m_fileName("DBFile.ext"), m_invoiceTypeEmpty(IT_NONE), m_empty()
 {
 }
 

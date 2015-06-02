@@ -48,7 +48,6 @@ private:
 
     QString m_supplier;
     QString m_customer;
-    QString m_payer;
     quint32 m_invoiceID;
     quint32 m_newIinvoiceID;
     QDate m_date;

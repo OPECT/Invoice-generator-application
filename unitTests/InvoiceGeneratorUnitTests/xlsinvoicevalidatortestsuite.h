@@ -19,7 +19,6 @@ public:
 
     bool validateSupplierField();
     bool validateRecieverField();
-    bool validatePayerField();
     bool validateInvoiceIDField();
     bool validateDateField();
     bool validateHeaderIDField();
@@ -30,6 +29,9 @@ public:
     bool validateHeaderSummaryField();
     bool validateMaxItemField();
     bool validateNextMaxItemield();
+    bool validateTotalCostField();
+    bool validateSupplierSignatureField();
+    bool validateRecieverSignatureField();
 
     static CppUnit::Test *suite();
 

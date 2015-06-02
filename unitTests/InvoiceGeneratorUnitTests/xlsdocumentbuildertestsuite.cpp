@@ -10,7 +10,7 @@
 XLSDocumentBuilderTestSuite::XLSDocumentBuilderTestSuite() : m_correctTemplateFile("../standardInvoice.xlsx"),
     m_wrongTemplateFile("../brokenTemplate.xlsx"), m_wrongData("Incorrect Data"), m_templateSheet("Invoice"),
     m_invoiceSheet("Invoice 111"), m_newInvoiceSheet("Invoice 4321"), m_supplier("Suuplier"), m_customer("Customer"),
-    m_payer("Payer"), m_invoiceID(111), m_newIinvoiceID(4321), m_goodName1("Item One"), m_goodType1("items"),
+    m_invoiceID(111), m_newIinvoiceID(4321), m_goodName1("Item One"), m_goodType1("items"),
     m_goodQuantity1(1.2), m_goodPrice1(0.111), m_goodName2("Item Two"), m_goodType2("items"), m_goodQuantity2(100),
     m_goodPrice2(2.78), m_resultFile("../resultFile.xlsx"),
     m_creationError("Create Document Error: Invoice template is invalid"),
@@ -129,7 +129,7 @@ bool XLSDocumentBuilderTestSuite::saveDocument_OK()
     {
         return false;
     }
-    if (!builder.addInvoicePage(m_supplier, m_customer, m_payer, m_invoiceID, m_date))
+    if (!builder.addInvoicePage(m_supplier, m_customer, m_invoiceID, m_date))
     {
         return false;
     }
@@ -178,7 +178,7 @@ bool XLSDocumentBuilderTestSuite::saveDocument_BAD()
     {
         return false;
     }
-    if (!builder.addInvoicePage(m_supplier, m_customer, m_payer, m_invoiceID, m_date))
+    if (!builder.addInvoicePage(m_supplier, m_customer, m_invoiceID, m_date))
     {
         return false;
     }
@@ -191,7 +191,7 @@ bool XLSDocumentBuilderTestSuite::saveDocument_BAD()
     {
         return false;
     }
-    if (!builder.addInvoicePage(m_supplier, m_customer, m_payer, m_invoiceID, m_date))
+    if (!builder.addInvoicePage(m_supplier, m_customer, m_invoiceID, m_date))
     {
         return false;
     }
@@ -229,7 +229,7 @@ bool XLSDocumentBuilderTestSuite::addPage_OK()
     {
         return false;
     }
-    if (!builder.addInvoicePage(m_supplier, m_customer, m_payer, m_invoiceID, m_date))
+    if (!builder.addInvoicePage(m_supplier, m_customer, m_invoiceID, m_date))
     {
         return false;
     }
@@ -271,11 +271,6 @@ bool XLSDocumentBuilderTestSuite::addPage_OK()
     {
         return false;
     }
-    if (!readAndVerify(verifyDoc, XLStandardInvoiceFormatBuilder::GDR_PAYER,
-                       XLStandardInvoiceFormatBuilder::GDC_GENERAL, m_payer))
-    {
-        return false;
-    }
     if (!readAndVerify(verifyDoc, XLStandardInvoiceFormatBuilder::GDR_INVOICE_ID,
                        XLStandardInvoiceFormatBuilder::GDC_INVOICE_ID, m_invoiceID))
     {
@@ -292,7 +287,7 @@ bool XLSDocumentBuilderTestSuite::addPage_BAD1()
     UnitTestPurposeErrorReport error;
     XLStandardInvoiceFormatBuilder builder(document, error);
 
-    if (builder.addInvoicePage(m_supplier, m_customer, m_payer, m_invoiceID, m_date))
+    if (builder.addInvoicePage(m_supplier, m_customer, m_invoiceID, m_date))
     {
         return false;
     }
@@ -304,7 +299,7 @@ bool XLSDocumentBuilderTestSuite::addPage_BAD1()
     {
         return false;
     }
-    if (builder.addInvoicePage(m_supplier, m_customer, m_payer, m_invoiceID, m_date))
+    if (builder.addInvoicePage(m_supplier, m_customer, m_invoiceID, m_date))
     {
         return false;
     }
@@ -348,7 +343,7 @@ bool XLSDocumentBuilderTestSuite::addPage_BAD2()
     {
         return false;
     }
-    if (!builder.addInvoicePage(m_supplier, m_customer, m_payer, m_invoiceID, m_date))
+    if (!builder.addInvoicePage(m_supplier, m_customer, m_invoiceID, m_date))
     {
         return false;
     }
@@ -358,11 +353,11 @@ bool XLSDocumentBuilderTestSuite::addPage_BAD2()
     {
         return false;
     }
-    if (builder.addInvoicePage(m_supplier, m_customer, m_payer, m_newIinvoiceID, m_date))
+    if (builder.addInvoicePage(m_supplier, m_customer, m_newIinvoiceID, m_date))
     {
         return false;
     }
-    if (builder.addInvoicePage(m_supplier, m_customer, m_payer, m_invoiceID, m_date))
+    if (builder.addInvoicePage(m_supplier, m_customer, m_invoiceID, m_date))
     {
         return false;
     }
@@ -421,7 +416,7 @@ bool XLSDocumentBuilderTestSuite::addItem_OK()
     {
         return false;
     }
-    if (!builder.addInvoicePage(m_supplier, m_customer, m_payer, m_invoiceID, m_date))
+    if (!builder.addInvoicePage(m_supplier, m_customer, m_invoiceID, m_date))
     {
         return false;
     }
@@ -539,7 +534,7 @@ bool XLSDocumentBuilderTestSuite::addItem_BAD()
     {
         return false;
     }
-    if (!builder.addInvoicePage(m_supplier, m_customer, m_payer, m_invoiceID, m_date))
+    if (!builder.addInvoicePage(m_supplier, m_customer, m_invoiceID, m_date))
     {
         return false;
     }
@@ -617,7 +612,7 @@ bool XLSDocumentBuilderTestSuite::addSummary_OK()
     {
         return false;
     }
-    if (!builder.addInvoicePage(m_supplier, m_customer, m_payer, m_invoiceID, m_date))
+    if (!builder.addInvoicePage(m_supplier, m_customer, m_invoiceID, m_date))
     {
         return false;
     }

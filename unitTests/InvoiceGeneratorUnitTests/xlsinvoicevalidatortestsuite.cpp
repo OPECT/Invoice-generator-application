@@ -107,23 +107,6 @@ bool XLSInvoiceValidatorTestsuite::validateRecieverField()
     return true;
 }
 
-bool XLSInvoiceValidatorTestsuite::validatePayerField()
-{
-    if (!checkNeededField(XLStandardInvoiceFormatBuilder::GDR_PAYER, XLSStandardInvoiceValidator::GDC_GENERAL,
-                         m_brokenData))
-    {
-        return false;
-    }
-
-    if (!checkNeededField(XLStandardInvoiceFormatBuilder::GDR_PAYER, XLSStandardInvoiceValidator::GDC_GENERAL,
-                         QVariant()))
-    {
-        return false;
-    }
-
-    return true;
-}
-
 bool XLSInvoiceValidatorTestsuite::validateInvoiceIDField()
 {
     if (!checkNeededField(XLStandardInvoiceFormatBuilder::GDR_INVOICE_ID, XLSStandardInvoiceValidator::GDC_INVOICE_ID,
@@ -288,6 +271,57 @@ bool XLSInvoiceValidatorTestsuite::validateNextMaxItemield()
     return true;
 }
 
+bool XLSInvoiceValidatorTestsuite::validateTotalCostField()
+{
+    if (!checkNeededField(XLSStandardInvoiceValidator::IIR_LAST + 1, XLSStandardInvoiceValidator::GDC_TOTAL_COST,
+                         m_brokenData))
+    {
+        return false;
+    }
+
+    if (!checkNeededField(XLSStandardInvoiceValidator::IIR_LAST + 1, XLSStandardInvoiceValidator::GDC_TOTAL_COST,
+                         QVariant()))
+    {
+        return false;
+    }
+
+    return true;
+}
+
+bool XLSInvoiceValidatorTestsuite::validateSupplierSignatureField()
+{
+    if (!checkNeededField(XLSStandardInvoiceValidator::IIR_LAST + 3,
+                          XLSStandardInvoiceValidator::GDC_SUPPLIER_SIGNATURE, m_brokenData))
+    {
+        return false;
+    }
+
+    if (!checkNeededField(XLSStandardInvoiceValidator::IIR_LAST + 3,
+                          XLSStandardInvoiceValidator::GDC_SUPPLIER_SIGNATURE, QVariant()))
+    {
+        return false;
+    }
+
+    return true;
+}
+
+bool XLSInvoiceValidatorTestsuite::validateRecieverSignatureField()
+{
+    if (!checkNeededField(XLSStandardInvoiceValidator::IIR_LAST + 3,
+                          XLSStandardInvoiceValidator::GDC_RECIEVER_SIGNATURE, m_brokenData))
+    {
+        return false;
+    }
+
+    if (!checkNeededField(XLSStandardInvoiceValidator::IIR_LAST + 3,
+                          XLSStandardInvoiceValidator::GDC_RECIEVER_SIGNATURE, QVariant()))
+    {
+        return false;
+    }
+
+    return true;
+}
+
 void XLSInvoiceValidatorTestsuite::validateSheetTest()
 {
     CPPUNIT_ASSERT(validateSheet_OK());
@@ -298,7 +332,6 @@ void XLSInvoiceValidatorTestsuite::fieldsDataTest()
 {
     CPPUNIT_ASSERT(validateSupplierField());
     CPPUNIT_ASSERT(validateRecieverField());
-    CPPUNIT_ASSERT(validatePayerField());
     CPPUNIT_ASSERT(validateInvoiceIDField());
     CPPUNIT_ASSERT(validateDateField());
     CPPUNIT_ASSERT(validateHeaderIDField());
@@ -309,6 +342,9 @@ void XLSInvoiceValidatorTestsuite::fieldsDataTest()
     CPPUNIT_ASSERT(validateHeaderSummaryField());
     CPPUNIT_ASSERT(validateMaxItemField());
     CPPUNIT_ASSERT(validateNextMaxItemield());
+    CPPUNIT_ASSERT(validateTotalCostField());
+    CPPUNIT_ASSERT(validateSupplierSignatureField());
+    CPPUNIT_ASSERT(validateRecieverSignatureField());
 }
 
 CppUnit::Test *XLSInvoiceValidatorTestsuite::suite()

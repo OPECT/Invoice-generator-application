@@ -15,8 +15,7 @@ public:
     virtual ~DocInvoiceBuilder() {}
 
     virtual bool createDocument(const QString &outputFileName) = 0;
-    virtual bool addInvoicePage(const QString &supplier, const QString &recipient, const QString &client, quint32 id,
-                                const QDate &date) = 0;
+    virtual bool addInvoicePage(const QString &supplier, const QString &recipient, quint32 id, const QDate &date) = 0;
     virtual bool addInvoiceItem(const QString &name, const QString &type, double quantity, double price,
                                 double summary) = 0;
     virtual bool addInvoideSummary() = 0;

@@ -6,8 +6,9 @@
 class XLSStandardInvoiceValidator : public InvoiceTemplateValidator
 {
 public:
-    enum GeneralDataColumn { GDC_GENERAL = 2, GDC_INVOICE_ID = 3, GDC_DATE = 4 };
-    enum InvoiceItemRows { IIR_HEADER = 15, IIR_LAST = 59 };
+    enum GeneralDataColumn { GDC_GENERAL = 2, GDC_SUPPLIER_SIGNATURE = 2, GDC_INVOICE_ID = 3, GDC_DATE = 4,
+                             GDC_TOTAL_COST = 7, GDC_RECIEVER_SIGNATURE = 7 };
+    enum InvoiceItemRows { IIR_HEADER = 8, IIR_LAST = 52 };
 
 public:
     XLSStandardInvoiceValidator(const QString &target);
@@ -17,7 +18,6 @@ public:
 private:
     const QString m_supplier;
     const QString m_reciever;
-    const QString m_customer;
     const QString m_invoiceNumber;
     const QString m_date;
 
@@ -27,9 +27,11 @@ private:
     const QString m_headerQuatity;
     const QString m_headerPrice;
     const QString m_headerSummary;
+    const QString m_invoiceTotal;
+    const QString m_supplierSignature;
+    const QString m_recieverSignature;
 
     const quint32 m_maxID;
-    // XXX validate summary
 };
 
 #endif // XLSSTANDARDINVOICEVALIDATOR_H

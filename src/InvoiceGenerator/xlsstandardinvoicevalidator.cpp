@@ -4,9 +4,11 @@
 #include <QFile>
 
 XLSStandardInvoiceValidator::XLSStandardInvoiceValidator(const QString &target) : InvoiceTemplateValidator(target),
-    m_supplier("Постачальник"), m_reciever("Одержувач"), m_customer("Платник"), m_invoiceNumber("Видаткова накладна №"),
+    m_supplier("Постачальник"), m_reciever("Одержувач"), m_invoiceNumber("Видаткова накладна №"),
     m_date("від \"     \" _____________  200_ р."), m_headerID("№ п/п"), m_headerGood("Товар"), m_headerType("Од.вим."),
-    m_headerQuatity("Кількість"), m_headerPrice("Ціна без ПДВ, в грн"), m_headerSummary("Сума без ПДВ, в грн"),
+    m_headerQuatity("Кількість"), m_headerPrice("Ціна"), m_headerSummary("Сума"), m_invoiceTotal("Разом:"),
+    m_supplierSignature("Відвантажив(ла)______________________"),
+    m_recieverSignature("Отримав(ла) ______________________________"),
     m_maxID(42)
 {
 }
@@ -38,12 +40,6 @@ bool XLSStandardInvoiceValidator::validateSheet(const QString &sheetName)
 
     data = doc.readData(XLStandardInvoiceFormatBuilder::GDR_RECIPIENT, GDC_GENERAL);
     if (!data.isValid() || data.toString() != m_reciever)
-    {
-        return false;
-    }
-
-    data = doc.readData(XLStandardInvoiceFormatBuilder::GDR_PAYER, GDC_GENERAL);
-    if (!data.isValid() || data.toString() != m_customer)
     {
         return false;
     }
@@ -104,6 +100,24 @@ bool XLSStandardInvoiceValidator::validateSheet(const QString &sheetName)
 
     data = doc.readData(IIR_LAST + 1, XLStandardInvoiceFormatBuilder::ICV_GOOD_ID);
     if (data.isValid())
+    {
+        return false;
+    }
+
+    data = doc.readData(IIR_LAST + 1, GDC_TOTAL_COST);
+    if (!data.isValid() || data.toString() != m_invoiceTotal)
+    {
+        return false;
+    }
+
+    data = doc.readData(IIR_LAST + 3, GDC_SUPPLIER_SIGNATURE);
+    if (!data.isValid() || data.toString() != m_supplierSignature)
+    {
+        return false;
+    }
+
+    data = doc.readData(IIR_LAST + 3, GDC_RECIEVER_SIGNATURE);
+    if (!data.isValid() || data.toString() != m_recieverSignature)
     {
         return false;
     }

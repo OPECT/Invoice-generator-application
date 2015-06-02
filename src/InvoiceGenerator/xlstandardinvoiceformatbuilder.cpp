@@ -10,8 +10,8 @@ XLStandardInvoiceFormatBuilder::XLStandardInvoiceFormatBuilder(InvoiceDocumentWr
                                                                ErrorReport &errorReporter, QString templateSheetName,
                                                                QObject *parent)
     : DocInvoiceBuilder(errorReporter, parent), m_document(document), m_isDocumentReady(false),
-      m_isSheetReady(false), m_itemCount(0), m_maxItemNumber(42), m_rowOffset(18),
-      m_templateSheetName(templateSheetName)
+      m_isSheetReady(false), m_itemCount(0), m_maxItemNumber(42),
+      m_rowOffset(XLSStandardInvoiceValidator::IIR_HEADER + 3), m_templateSheetName(templateSheetName)
 {
 }
 
@@ -39,8 +39,8 @@ bool XLStandardInvoiceFormatBuilder::createDocument(const QString &outputFileNam
     return true;
 }
 
-bool XLStandardInvoiceFormatBuilder::addInvoicePage(const QString &supplier, const QString &recipient,
-                                                    const QString &client, quint32 id, const QDate &date)
+bool XLStandardInvoiceFormatBuilder::addInvoicePage(const QString &supplier, const QString &recipient, quint32 id,
+                                                    const QDate &date)
 {
     QString invoiceSheetName = QString("Invoice %1").arg(id);
 
@@ -66,7 +66,6 @@ bool XLStandardInvoiceFormatBuilder::addInvoicePage(const QString &supplier, con
     m_isSheetReady = false;
     if (!writeCellString(GDR_SUPPLIER, GDC_GENERAL, supplier) ||
         !writeCellString(GDR_RECIPIENT, GDC_GENERAL, recipient) ||
-        !writeCellString(GDR_PAYER, GDC_GENERAL, client) ||
         !writeCellDouble(GDR_INVOICE_ID, GDC_INVOICE_ID, id))
     {
         m_document.deleteSheet(invoiceSheetName);
