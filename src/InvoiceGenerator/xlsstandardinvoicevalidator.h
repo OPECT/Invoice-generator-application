@@ -8,7 +8,7 @@ class XLSStandardInvoiceValidator : public InvoiceTemplateValidator
 public:
     enum GeneralDataColumn { GDC_GENERAL = 2, GDC_SUPPLIER_SIGNATURE = 2, GDC_INVOICE_ID = 3, GDC_DATE = 4,
                              GDC_TOTAL_COST = 7, GDC_RECIEVER_SIGNATURE = 7 };
-    enum InvoiceItemRows { IIR_HEADER = 8, IIR_LAST = 52 };
+    enum InvoiceItemRows { IIR_HEADER = 6, IIR_LAST = 48 };
 
 public:
     XLSStandardInvoiceValidator(const QString &target);

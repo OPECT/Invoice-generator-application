@@ -9,7 +9,7 @@ XLSStandardInvoiceValidator::XLSStandardInvoiceValidator(const QString &target) 
     m_headerQuatity("Кількість"), m_headerPrice("Ціна"), m_headerSummary("Сума"), m_invoiceTotal("Разом:"),
     m_supplierSignature("Відвантажив(ла)______________________"),
     m_recieverSignature("Отримав(ла) ______________________________"),
-    m_maxID(42)
+    m_maxID(40)
 {
 }
 

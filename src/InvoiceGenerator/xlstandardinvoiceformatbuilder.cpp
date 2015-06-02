@@ -10,7 +10,7 @@ XLStandardInvoiceFormatBuilder::XLStandardInvoiceFormatBuilder(InvoiceDocumentWr
                                                                ErrorReport &errorReporter, QString templateSheetName,
                                                                QObject *parent)
     : DocInvoiceBuilder(errorReporter, parent), m_document(document), m_isDocumentReady(false),
-      m_isSheetReady(false), m_itemCount(0), m_maxItemNumber(42),
+      m_isSheetReady(false), m_itemCount(0), m_maxItemNumber(40),
       m_rowOffset(XLSStandardInvoiceValidator::IIR_HEADER + 3), m_templateSheetName(templateSheetName)
 {
 }

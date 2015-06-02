@@ -9,7 +9,7 @@ class XLStandardInvoiceFormatBuilder : public DocInvoiceBuilder
 public:
     enum ItemColumnValue { ICV_GOOD_ID = 1, ICV_GOOD_NAME = 2, ICV_GOOD_TYPE = 6, ICV_GOOD_QUANTITY = 7,
                            ICV_GOOD_PRICE = 8, ICV_GOOD_TOTAL = 9 };
-    enum GeneralDataRow { GDR_SUPPLIER = 4, GDR_RECIPIENT = 5, GDR_INVOICE_ID = 6, GDR_DATE = 7 };
+    enum GeneralDataRow { GDR_SUPPLIER = 2, GDR_RECIPIENT = 3, GDR_INVOICE_ID = 4, GDR_DATE = 5 };
     enum GeneralDataColumn { GDC_GENERAL = 4, GDC_INVOICE_ID = 7, GDC_DATE = 4 };
 
 public:
