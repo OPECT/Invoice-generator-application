@@ -1,6 +1,7 @@
 #include "xlstandardinvoiceformatbuilder.h"
 #include "xlsstandardinvoicevalidator.h"
 #include "errorreport.h"
+#include "badefines.h"
 
 #include <QDate>
 #include <QStringList>
@@ -10,8 +11,8 @@ XLStandardInvoiceFormatBuilder::XLStandardInvoiceFormatBuilder(InvoiceDocumentWr
                                                                ErrorReport &errorReporter, QString templateSheetName,
                                                                QObject *parent)
     : DocInvoiceBuilder(errorReporter, parent), m_document(document), m_isDocumentReady(false),
-      m_isSheetReady(false), m_itemCount(0), m_maxItemNumber(40),
-      m_rowOffset(XLSStandardInvoiceValidator::IIR_HEADER + 3), m_templateSheetName(templateSheetName)
+      m_isSheetReady(false), m_itemCount(0), m_rowOffset(XLSStandardInvoiceValidator::IIR_HEADER + 3),
+      m_templateSheetName(templateSheetName)
 {
 }
 
@@ -64,8 +65,7 @@ bool XLStandardInvoiceFormatBuilder::addInvoicePage(const QString &supplier, con
     }
 
     m_isSheetReady = false;
-    if (!writeCellString(GDR_SUPPLIER, GDC_GENERAL, supplier) ||
-        !writeCellString(GDR_RECIPIENT, GDC_GENERAL, recipient) ||
+    if (!writeCellString(GDR_RECIPIENT, GDC_GENERAL, recipient) ||
         !writeCellDouble(GDR_INVOICE_ID, GDC_INVOICE_ID, id))
     {
         m_document.deleteSheet(invoiceSheetName);
@@ -94,13 +94,14 @@ bool XLStandardInvoiceFormatBuilder::addInvoiceItem(const QString &name, const Q
         return false;
     }
 
-    if (m_itemCount >= m_maxItemNumber)
+    if (m_itemCount >= MAX_INVOICE_ITEMS)
     {
         reportError(tr("Add Item Error: Invoice is Full"));
         return false;
     }
 
-    if (!writeCellString(toDocumentRowIndex(m_itemCount), ICV_GOOD_NAME, name) ||
+    if (!writeCellDouble(toDocumentRowIndex(m_itemCount), ICV_GOOD_ID, m_itemCount) ||
+        !writeCellString(toDocumentRowIndex(m_itemCount), ICV_GOOD_NAME, name) ||
         !writeCellString(toDocumentRowIndex(m_itemCount), ICV_GOOD_TYPE, type) ||
         !writeCellDouble(toDocumentRowIndex(m_itemCount), ICV_GOOD_QUANTITY, quantity) ||
         !writeCellDouble(toDocumentRowIndex(m_itemCount), ICV_GOOD_PRICE, price) ||

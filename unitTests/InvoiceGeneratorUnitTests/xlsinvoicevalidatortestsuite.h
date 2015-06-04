@@ -17,7 +17,6 @@ public:
     bool validateSheet_OK();
     bool validateSheet_BAD();
 
-    bool validateSupplierField();
     bool validateRecieverField();
     bool validateInvoiceIDField();
     bool validateDateField();

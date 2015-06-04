@@ -73,23 +73,6 @@ bool XLSInvoiceValidatorTestsuite::validateSheet_BAD()
     return true;
 }
 
-bool XLSInvoiceValidatorTestsuite::validateSupplierField()
-{
-    if (!checkNeededField(XLStandardInvoiceFormatBuilder::GDR_SUPPLIER, XLSStandardInvoiceValidator::GDC_GENERAL,
-                         m_brokenData))
-    {
-        return false;
-    }
-
-    if (!checkNeededField(XLStandardInvoiceFormatBuilder::GDR_SUPPLIER, XLSStandardInvoiceValidator::GDC_GENERAL,
-                         QVariant()))
-    {
-        return false;
-    }
-
-    return true;
-}
-
 bool XLSInvoiceValidatorTestsuite::validateRecieverField()
 {
     if (!checkNeededField(XLStandardInvoiceFormatBuilder::GDR_RECIPIENT, XLSStandardInvoiceValidator::GDC_GENERAL,
@@ -251,12 +234,6 @@ bool XLSInvoiceValidatorTestsuite::validateMaxItemField()
         return false;
     }
 
-    if (!checkNeededField(XLSStandardInvoiceValidator::IIR_LAST, XLStandardInvoiceFormatBuilder::ICV_GOOD_ID,
-                         QVariant()))
-    {
-        return false;
-    }
-
     return true;
 }
 
@@ -330,7 +307,6 @@ void XLSInvoiceValidatorTestsuite::validateSheetTest()
 
 void XLSInvoiceValidatorTestsuite::fieldsDataTest()
 {
-    CPPUNIT_ASSERT(validateSupplierField());
     CPPUNIT_ASSERT(validateRecieverField());
     CPPUNIT_ASSERT(validateInvoiceIDField());
     CPPUNIT_ASSERT(validateDateField());

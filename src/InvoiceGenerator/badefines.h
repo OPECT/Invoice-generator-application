@@ -16,6 +16,7 @@ const quint8 MAX_FLOAT_NUMBER_LENGTH = 8;
 const quint8 MAX_DISCOUNT_NUMBER_LENGTH = 3;
 const quint8 MAX_INVOICE_ID_LENGTH = 10;
 
+const quint8 MAX_INVOICE_ITEMS = 40;
 const quint32 MAX_INVOICE_ID_VALUE = 1000000000;
 
 #endif // BADEFINES_H

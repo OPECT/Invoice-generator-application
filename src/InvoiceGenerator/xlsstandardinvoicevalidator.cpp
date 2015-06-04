@@ -1,15 +1,16 @@
 #include "xlsstandardinvoicevalidator.h"
 #include "xlsdocumentwrapper.h"
 #include "xlstandardinvoiceformatbuilder.h"
+#include "badefines.h"
+
 #include <QFile>
 
 XLSStandardInvoiceValidator::XLSStandardInvoiceValidator(const QString &target) : InvoiceTemplateValidator(target),
-    m_supplier("Постачальник"), m_reciever("Одержувач"), m_invoiceNumber("Видаткова накладна №"),
-    m_date("від \"     \" _____________  200_ р."), m_headerID("№ п/п"), m_headerGood("Товар"), m_headerType("Од.вим."),
-    m_headerQuatity("Кількість"), m_headerPrice("Ціна"), m_headerSummary("Сума"), m_invoiceTotal("Разом:"),
-    m_supplierSignature("Відвантажив(ла)______________________"),
-    m_recieverSignature("Отримав(ла) ______________________________"),
-    m_maxID(40)
+    m_reciever("Кому відпущено"), m_invoiceNumber("НАКЛАДНА №"), m_date("від \"     \" _____________  200_ р."),
+    m_headerID("№ п/п"), m_headerGood("Товар"), m_headerType("Од.вим."), m_headerQuatity("Кількість"),
+    m_headerPrice("Ціна"), m_headerSummary("Сума"), m_invoiceTotal("Разом:"),
+    m_supplierSignature("Відпустив______________________"),
+    m_recieverSignature("Отримав _____________________")
 {
 }
 
@@ -32,13 +33,7 @@ bool XLSStandardInvoiceValidator::validateSheet(const QString &sheetName)
         return false;
     }
 
-    QVariant data = doc.readData(XLStandardInvoiceFormatBuilder::GDR_SUPPLIER, GDC_GENERAL);
-    if (!data.isValid() || data.toString() != m_supplier)
-    {
-        return false;
-    }
-
-    data = doc.readData(XLStandardInvoiceFormatBuilder::GDR_RECIPIENT, GDC_GENERAL);
+    QVariant data = doc.readData(XLStandardInvoiceFormatBuilder::GDR_RECIPIENT, GDC_GENERAL);
     if (!data.isValid() || data.toString() != m_reciever)
     {
         return false;
@@ -93,7 +88,7 @@ bool XLSStandardInvoiceValidator::validateSheet(const QString &sheetName)
     }
 
     data = doc.readData(IIR_LAST, XLStandardInvoiceFormatBuilder::ICV_GOOD_ID);
-    if (!data.isValid() || data.toUInt() != m_maxID)
+    if (data.isValid())
     {
         return false;
     }

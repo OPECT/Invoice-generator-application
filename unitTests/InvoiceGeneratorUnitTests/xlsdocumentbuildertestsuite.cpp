@@ -3,6 +3,7 @@
 #include "xlsdocumentwrapper.h"
 #include "xlsstandardinvoicevalidator.h"
 #include "unittestpurposeerrorreport.h"
+#include "badefines.h"
 
 #include <cppunit/TestCaller.h>
 #include <QVariant>
@@ -81,7 +82,7 @@ bool XLSDocumentBuilderTestSuite::createDocument_BAD()
     {
         return false;
     }
-    if (!document.writeString(XLStandardInvoiceFormatBuilder::GDR_SUPPLIER, XLSStandardInvoiceValidator::GDC_GENERAL,
+    if (!document.writeString(XLStandardInvoiceFormatBuilder::GDR_RECIPIENT, XLSStandardInvoiceValidator::GDC_GENERAL,
                               m_wrongData))
     {
         return false;
@@ -258,11 +259,6 @@ bool XLSDocumentBuilderTestSuite::addPage_OK()
         return false;
     }
     if (!verifyDoc.changeCurrentSheet(m_invoiceSheet))
-    {
-        return false;
-    }
-    if (!readAndVerify(verifyDoc, XLStandardInvoiceFormatBuilder::GDR_SUPPLIER,
-                       XLStandardInvoiceFormatBuilder::GDC_GENERAL, m_supplier))
     {
         return false;
     }
@@ -538,7 +534,7 @@ bool XLSDocumentBuilderTestSuite::addItem_BAD()
     {
         return false;
     }
-    for (quint8 id = 0; id < builder.maxItemsCount(); id ++)
+    for (quint8 id = 0; id < MAX_INVOICE_ITEMS; id ++)
     {
         if (!builder.addInvoiceItem(m_goodName1, m_goodType1, m_goodQuantity1, m_goodPrice1,
                                     m_goodQuantity1 * m_goodPrice1))

@@ -16,7 +16,6 @@ public:
     virtual bool validateSheet(const QString &sheetName);
 
 private:
-    const QString m_supplier;
     const QString m_reciever;
     const QString m_invoiceNumber;
     const QString m_date;
@@ -30,8 +29,6 @@ private:
     const QString m_invoiceTotal;
     const QString m_supplierSignature;
     const QString m_recieverSignature;
-
-    const quint32 m_maxID;
 };
 
 #endif // XLSSTANDARDINVOICEVALIDATOR_H

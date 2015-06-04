@@ -9,7 +9,7 @@ class XLStandardInvoiceFormatBuilder : public DocInvoiceBuilder
 public:
     enum ItemColumnValue { ICV_GOOD_ID = 1, ICV_GOOD_NAME = 2, ICV_GOOD_TYPE = 6, ICV_GOOD_QUANTITY = 7,
                            ICV_GOOD_PRICE = 8, ICV_GOOD_TOTAL = 9 };
-    enum GeneralDataRow { GDR_SUPPLIER = 2, GDR_RECIPIENT = 3, GDR_INVOICE_ID = 4, GDR_DATE = 5 };
+    enum GeneralDataRow { GDR_INVOICE_ID = 1, GDR_DATE = 2, GDR_RECIPIENT = 4 };
     enum GeneralDataColumn { GDC_GENERAL = 4, GDC_INVOICE_ID = 7, GDC_DATE = 4 };
 
 public:
@@ -24,7 +24,6 @@ public:
     virtual bool addInvoideSummary();
     virtual bool saveDocument(bool overwrite);
 
-    quint32 maxItemsCount() { return m_maxItemNumber; }
     quint32 currentItemsCount() { return m_itemCount; }
 
 private:
@@ -42,8 +41,7 @@ private:
     bool m_isDocumentReady;
     bool m_isSheetReady;
 
-    quint32 m_itemCount;
-    quint32 m_maxItemNumber;
+    quint8 m_itemCount;
     quint32 m_rowOffset;
 
     QString m_templateSheetName;
