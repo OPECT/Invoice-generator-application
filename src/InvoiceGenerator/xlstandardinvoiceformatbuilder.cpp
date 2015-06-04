@@ -100,7 +100,7 @@ bool XLStandardInvoiceFormatBuilder::addInvoiceItem(const QString &name, const Q
         return false;
     }
 
-    if (!writeCellDouble(toDocumentRowIndex(m_itemCount), ICV_GOOD_ID, m_itemCount) ||
+    if (!writeCellDouble(toDocumentRowIndex(m_itemCount), ICV_GOOD_ID, m_itemCount + 1) ||
         !writeCellString(toDocumentRowIndex(m_itemCount), ICV_GOOD_NAME, name) ||
         !writeCellString(toDocumentRowIndex(m_itemCount), ICV_GOOD_TYPE, type) ||
         !writeCellDouble(toDocumentRowIndex(m_itemCount), ICV_GOOD_QUANTITY, quantity) ||
