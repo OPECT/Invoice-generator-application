@@ -10,8 +10,8 @@ public:
     enum GoodDataColumn {
         GDC_NAME = 1,
         GDC_TYPE,
-        GDC_PRICE,
-        GDC_CATEGORY
+        GDC_CATEGORY,
+        GDC_PRICE
     };
 
 public:

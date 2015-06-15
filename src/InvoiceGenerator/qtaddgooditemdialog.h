@@ -2,12 +2,12 @@
 #define QTADDGOODITEMDIALOG_H
 
 #include "qtadddatadialog.h"
+#include "qteditboxline.h"
 #include <QString>
 #include <QDoubleValidator>
+#include <QComboBox>
 
-class QComboBox;
 class QHBoxLayout;
-class QTEditBoxLine;
 class TableHandler;
 class DataBaseData;
 
@@ -18,6 +18,12 @@ public:
     QTAddGoodItemDialog(const QString& title, const TableHandler& goodTable, const DataBaseData& dbData,
                         QWidget* parent = 0);
     virtual ~QTAddGoodItemDialog() { }
+
+    QString goodName() { return m_goodNameLine->getEditText(); }
+    QString goodCategory() { return m_goodCategoryCombo->currentText(); }
+    QString goodType() { return m_goodTypeCombo->currentText(); }
+    double goodPrice() { return m_goodPriceLine->getEditText().toDouble(); }
+
 
 public slots:
     void itemChoosed(qint32 index);

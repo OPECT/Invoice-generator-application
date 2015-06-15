@@ -13,12 +13,12 @@
 #include <QList>
 #include <QVariant>
 
-QTAddCustomerDialog::QTAddCustomerDialog(const QString& title, const TableHandler& goodTable,
-    const DataBaseData& dbData, QWidget* parent) : QTAddDataDialog(parent), m_table(goodTable),
+QTAddCustomerDialog::QTAddCustomerDialog(const QString& title, const TableHandler& customerTable,
+    const DataBaseData& dbData, QWidget* parent) : QTAddDataDialog(parent), m_table(customerTable),
     m_customerNameMsg(tr("Customer name")), m_customerDiscountMsg(tr("Customer discount")),
     m_customerRegionMsg(tr("Customer region")), m_customerRegionEnterMsg(tr("Enter new region")),
     m_regionColumn(dbData.customerRegionColumn()), m_nameColumn(dbData.customerNameColumn()),
-    m_discountValidator(0, 100, this)
+    m_discountValidator(0, MAX_DISCOUNT_VALUE, this)
 {
     m_customerNameLine = new QTEditBoxLine(m_customerNameMsg, MAX_CUSTOMER_NAME_LENGTH);
     m_customerDiscountLine = new QTEditBoxLine(m_customerDiscountMsg, MAX_DISCOUNT_NUMBER_LENGTH,

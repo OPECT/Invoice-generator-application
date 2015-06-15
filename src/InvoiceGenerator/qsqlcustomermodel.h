@@ -10,8 +10,8 @@ class QSQLCustomerModel : public QSqlTableModel
 public:
     enum CustomerDataColumn {
         CDC_NAME = 1,
-        CDC_MULTIPLIER,
-        CDC_REGION
+        CDC_REGION,
+        CDC_MULTIPLIER
     };
 
 public:

@@ -13,19 +13,14 @@ void QTAddDataDialog::show()
     QDialog::show();
 }
 
-void QTAddDataDialog::addConfirmed()
-{
-    emit addConfirmedNofify();
-}
-
 QHBoxLayout* QTAddDataDialog::createButtonsLayout()
 {
     m_addBtn = new QPushButton(tr("Add"));
     m_cancelBtn = new QPushButton(tr("Cancel"));
 
     m_addBtn->setEnabled(false);
-    connect(m_cancelBtn, SIGNAL(clicked()), this, SLOT(close()));
-    connect(m_addBtn, SIGNAL(clicked()), this, SLOT(addConfirmed()));
+    connect(m_cancelBtn, SIGNAL(clicked()), this, SLOT(reject()));
+    connect(m_addBtn, SIGNAL(clicked()), this, SLOT(accept()));
 
     QHBoxLayout *btnLayout = new QHBoxLayout();
     btnLayout->addStretch();

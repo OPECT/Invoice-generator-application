@@ -18,12 +18,6 @@ public:
 private:
     virtual void clearData() = 0;
 
-signals:
-    void addConfirmedNofify();
-
-public slots:
-    void addConfirmed();
-
 protected:
     QHBoxLayout* createButtonsLayout();
 
