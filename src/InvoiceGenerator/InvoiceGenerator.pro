@@ -37,7 +37,10 @@ SOURCES += main.cpp \
     bautils.cpp \
     qtaddcustomerdialog.cpp \
     qtwindowbase.cpp \
-    qtstartupwindow.cpp
+    qtstartupwindow.cpp \
+    qtdatabasewindow.cpp \
+    qtcustomerdatabasewindow.cpp \
+    qtgoodsdatabasewindow.cpp
 
 HEADERS  += invoiceitem.h \
     invoicedata.h \
@@ -69,4 +72,7 @@ HEADERS  += invoiceitem.h \
     qtaddcustomerdialog.h \
     qtwindowbase.h \
     qtstartupwindow.h \
-    batypes.h
+    batypes.h \
+    qtdatabasewindow.h \
+    qtcustomerdatabasewindow.h \
+    qtgoodsdatabasewindow.h
