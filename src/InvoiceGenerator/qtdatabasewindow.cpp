@@ -12,7 +12,7 @@
 
 QTDataBaseWindow::QTDataBaseWindow(const TableHandler& sqlHandler, QSqlTableModel* model, const QString& name,
                                    const QString& filter, QObject* parent)
-    : QTWindowBase(name, parent), m_sqlHandler(sqlHandler), m_dataModel(model), m_filterColumn(filter),
+    : QTWindowBase(name, parent), m_dataModel(model), m_sqlHandler(sqlHandler), m_filterColumn(filter),
       m_openDBButtonMsg(tr("Open Data Base")), m_saveDBButtonMsg(tr("Save Data Base")),
       m_deleteItemButtonMsg(tr("Delete Item")), m_addItemButtonMsg(tr("Add New Item")), m_backButtonMsg(tr("Back")),
       m_openDBMsg(tr("Open Data Base")), m_saveDBMsg(tr("Save Data Base")), m_filterDBMsg(tr("DataBase files")),

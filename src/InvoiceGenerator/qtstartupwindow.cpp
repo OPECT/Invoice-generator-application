@@ -24,6 +24,14 @@ QTStartUpWindow::QTStartUpWindow(const QString &name, QObject *parent) : QTWindo
     m_mainWidget->setLayout(wndLayout);
 }
 
+QTStartUpWindow::~QTStartUpWindow()
+{
+    delete m_invoiceNumber;
+    delete m_companyName;
+    delete m_traderName;
+    delete m_traderSurname;
+}
+
 QHBoxLayout* QTStartUpWindow::createButtonsLayout()
 {
     m_proceedButton = new QPushButton(tr("Invoices"));

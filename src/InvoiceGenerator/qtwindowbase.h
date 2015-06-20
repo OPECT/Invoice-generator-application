@@ -16,7 +16,7 @@ public:
     virtual void show();
     virtual void hide();
 
-    const QWidget* mainWidget() { return m_mainWidget; }
+    QWidget* mainWidget() { return m_mainWidget; }
     const QString& windowName() { return m_windowName; }
 
 protected:

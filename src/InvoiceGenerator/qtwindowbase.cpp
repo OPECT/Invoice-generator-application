@@ -1,5 +1,4 @@
 #include "qtwindowbase.h"
-
 #include <QWidget>
 
 QTWindowBase::QTWindowBase(const QString& name, QObject* parent) :  QObject(parent), m_windowName(name)
@@ -9,7 +8,10 @@ QTWindowBase::QTWindowBase(const QString& name, QObject* parent) :  QObject(pare
 
 QTWindowBase::~QTWindowBase()
 {
-    delete m_mainWidget;
+    if (!m_mainWidget->parent())
+    {
+        delete m_mainWidget;
+    }
 }
 
 void QTWindowBase::show()

@@ -38,6 +38,12 @@ QTAddCustomerDialog::QTAddCustomerDialog(const QString& title, const TableHandle
     setFixedHeight(sizeHint().height());
 }
 
+QTAddCustomerDialog::~QTAddCustomerDialog()
+{
+    delete m_customerNameLine;
+    delete m_customerDiscountLine;
+}
+
 QHBoxLayout* QTAddCustomerDialog::createCustomerRegionLayout()
 {
     m_customerRegionCombo = new QComboBox();

@@ -40,6 +40,12 @@ QTAddGoodItemDialog::QTAddGoodItemDialog(const QString& title, const TableHandle
     setFixedHeight(sizeHint().height());
 }
 
+QTAddGoodItemDialog::~QTAddGoodItemDialog()
+{
+    delete m_goodNameLine;
+    delete m_goodPriceLine;
+}
+
 QHBoxLayout* QTAddGoodItemDialog::createGoodTypeLayout()
 {
     using Utils::goodTypes;

@@ -19,7 +19,7 @@ class QTAddCustomerDialog : public QTAddDataDialog
 public:
     QTAddCustomerDialog(const QString& title, const TableHandler& customerTable, const DataBaseData& dbData,
                         QWidget* parent = 0);
-    virtual ~QTAddCustomerDialog() { }
+    virtual ~QTAddCustomerDialog();
 
     QString customerName() { return m_customerNameLine->getEditText(); }
     QString customerRegion() { return m_customerRegionCombo->currentText(); }

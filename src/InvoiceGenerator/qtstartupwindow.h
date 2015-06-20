@@ -18,7 +18,7 @@ class QTStartUpWindow : public QTWindowBase
     Q_OBJECT
 public:
     QTStartUpWindow(const QString& name, QObject* parent = 0);
-    virtual ~QTStartUpWindow() { }
+    virtual ~QTStartUpWindow();
 
 private slots:
     void personalDataChanged(const QString& text);

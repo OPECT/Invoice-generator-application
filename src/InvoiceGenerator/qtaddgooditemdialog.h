@@ -17,7 +17,7 @@ class QTAddGoodItemDialog : public QTAddDataDialog
 public:
     QTAddGoodItemDialog(const QString& title, const TableHandler& goodTable, const DataBaseData& dbData,
                         QWidget* parent = 0);
-    virtual ~QTAddGoodItemDialog() { }
+    virtual ~QTAddGoodItemDialog();
 
     QString goodName() { return m_goodNameLine->getEditText(); }
     QString goodCategory() { return m_goodCategoryCombo->currentText(); }

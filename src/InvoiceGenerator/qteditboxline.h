@@ -15,13 +15,14 @@ class QTEditBoxLine : public QObject
 public:
     explicit QTEditBoxLine(const QString& label, quint32 editLimit, const QValidator* validator = 0,
                            QObject* parent = 0);
+    ~QTEditBoxLine();
 
-    void setEditText(const QString& text) { m_edit.setText(text); }
-    void clearText() { m_edit.clear(); }
-    QString getEditText() const { return m_edit.text(); }
+    void setEditText(const QString& text) { m_edit->setText(text); }
+    void clearText() { m_edit->clear(); }
+    QString getEditText() const { return m_edit->text(); }
 
-    QHBoxLayout* getLayout() { return &m_layout; }
-    bool isDataReady() const { return !m_edit.text().isEmpty(); }
+    QHBoxLayout* getLayout() { return m_layout; }
+    bool isDataReady() const { return !m_edit->text().isEmpty(); }
 
     void setEditLimit(quint32 limit);
 
@@ -29,9 +30,9 @@ signals:
     void editBoxChanged(const QString& text);
 
 private:
-    QHBoxLayout m_layout;
-    QLabel m_info;
-    QLineEdit m_edit;
+    QHBoxLayout* m_layout;
+    QLabel* m_info;
+    QLineEdit* m_edit;
 };
 
 #endif // QTEDITBOXLINE_H
