@@ -1,7 +1,8 @@
 #include "qtwindowbase.h"
 #include <QWidget>
 
-QTWindowBase::QTWindowBase(const QString& name, QObject* parent) :  QObject(parent), m_windowName(name)
+QTWindowBase::QTWindowBase(const QString& name, QObject* parent) :  QObject(parent),
+    m_windowName(tr(name.toStdString().c_str()))
 {
     m_mainWidget = new QWidget();
 }

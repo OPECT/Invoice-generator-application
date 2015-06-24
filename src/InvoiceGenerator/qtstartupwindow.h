@@ -12,28 +12,39 @@ class QVBoxLayout;
 class QCalendarWidget;
 class QTEditBoxLine;
 class QComboBox;
+class GeneralInvoiceData;
 
 class QTStartUpWindow : public QTWindowBase
 {
     Q_OBJECT
 public:
-    QTStartUpWindow(const QString& name, QObject* parent = 0);
+    QTStartUpWindow(GeneralInvoiceData& data, const QString& name, QObject* parent = 0);
     virtual ~QTStartUpWindow();
+
+    virtual void show();
+
+signals:
+    void startUpWindowEvent(UI_EVENTS event);
 
 private slots:
     void personalDataChanged(const QString& text);
     void activateButton();
+    void exitPressed();
+    void proceedPressed();
+    void openCustomersPressed();
+    void openGoodsPressed();
 
 private:
     QHBoxLayout* createButtonsLayout();
     QHBoxLayout* createDataLayout();
     QVBoxLayout* createInvoiceDataLayout();
-    QVBoxLayout* createTraderDataLayout();
     QHBoxLayout* createInvoiceComboLayout();
 
     INVOICE_TYPE currentComboItemToInvoiceType();
 
 private:
+    GeneralInvoiceData& m_generalData;
+
     QCalendarWidget* m_calendar;
     QComboBox* m_invoiceCombo;
 

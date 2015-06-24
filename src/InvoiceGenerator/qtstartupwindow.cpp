@@ -2,6 +2,7 @@
 #include "badefines.h"
 #include "qteditboxline.h"
 #include "bautils.h"
+#include "generalinvoicedata.h"
 
 #include <QVBoxLayout>
 #include <QWidget>
@@ -11,10 +12,11 @@
 #include <QMapIterator>
 #include <QFile>
 
-QTStartUpWindow::QTStartUpWindow(const QString &name, QObject *parent) : QTWindowBase(name, parent),
-    m_invoiceNumberMsg(tr("Enter invoice number")), m_companyNameMsg(tr("Enter company name")),
-    m_traderNameMsg(tr("Enter trader name")), m_traderSurnameMsg(tr("Enter trader surname")),
-    m_invoiceComboeMsg(tr("Choose invoice type")), m_invoiceIdValidator(0, MAX_INVOICE_ID_VALUE, this)
+QTStartUpWindow::QTStartUpWindow(GeneralInvoiceData& data, const QString &name, QObject *parent)
+    : QTWindowBase(name, parent), m_generalData(data), m_invoiceNumberMsg(tr("Enter invoice number")),
+    m_companyNameMsg(tr("Enter company name")), m_traderNameMsg(tr("Enter trader name")),
+    m_traderSurnameMsg(tr("Enter trader surname")), m_invoiceComboeMsg(tr("Choose invoice type")),
+    m_invoiceIdValidator(0, MAX_INVOICE_ID_VALUE, this)
 {
     QVBoxLayout* wndLayout = new QVBoxLayout();
     wndLayout->addLayout(createDataLayout());
@@ -32,6 +34,23 @@ QTStartUpWindow::~QTStartUpWindow()
     delete m_traderSurname;
 }
 
+void QTStartUpWindow::show()
+{
+    if (m_companyName->getEditText().isEmpty())
+    {
+        m_companyName->setEditText(m_generalData.companyName());
+    }
+    if (m_traderName->getEditText().isEmpty())
+    {
+        m_traderName->setEditText(m_generalData.traderName());
+    }
+    if (m_traderSurname->getEditText().isEmpty())
+    {
+        m_traderSurname->setEditText(m_generalData.traderSecondName());
+    }
+    QTWindowBase::show();
+}
+
 QHBoxLayout* QTStartUpWindow::createButtonsLayout()
 {
     m_proceedButton = new QPushButton(tr("Invoices"));
@@ -40,6 +59,10 @@ QHBoxLayout* QTStartUpWindow::createButtonsLayout()
     m_exitButton = new QPushButton(tr("Exit"));
 
     m_proceedButton->setEnabled(false);
+    connect(m_proceedButton, SIGNAL(clicked()), this, SLOT(proceedPressed()));
+    connect(m_goodsButton, SIGNAL(clicked()), this, SLOT(openGoodsPressed()));
+    connect(m_customersButton, SIGNAL(clicked()), this, SLOT(openCustomersPressed()));
+    connect(m_exitButton, SIGNAL(clicked()), this, SLOT(exitPressed()));
 
     QHBoxLayout* btnLayout = new QHBoxLayout();
     btnLayout->addWidget(m_goodsButton);
@@ -59,7 +82,6 @@ QHBoxLayout* QTStartUpWindow::createDataLayout()
     QHBoxLayout* dataLayout = new QHBoxLayout();
     dataLayout->addWidget(m_calendar);
     dataLayout->addLayout(createInvoiceDataLayout());
-    dataLayout->addLayout(createTraderDataLayout());
 
     return dataLayout;
 }
@@ -68,28 +90,18 @@ QVBoxLayout* QTStartUpWindow::createInvoiceDataLayout()
 {
     m_invoiceNumber = new QTEditBoxLine(m_invoiceNumberMsg, MAX_INVOICE_ID_LENGTH, &m_invoiceIdValidator);
     m_companyName = new QTEditBoxLine(m_companyNameMsg, MAX_COMPANY_NAME_LENGTH);
+    m_traderName = new QTEditBoxLine(m_traderNameMsg, MAX_TRADER_NAME_LENGTH);
+    m_traderSurname = new QTEditBoxLine(m_traderSurnameMsg, MAX_TRADER_SECOND_NAME_LENGTH);
 
     connect(m_invoiceNumber, SIGNAL(editBoxChanged(const QString&)), this, SLOT(personalDataChanged(const QString&)));
     connect(m_companyName, SIGNAL(editBoxChanged(const QString&)), this, SLOT(personalDataChanged(const QString&)));
+    connect(m_traderName, SIGNAL(editBoxChanged(const QString&)), this, SLOT(personalDataChanged(const QString&)));
+    connect(m_traderSurname, SIGNAL(editBoxChanged(const QString&)), this, SLOT(personalDataChanged(const QString&)));
 
     QVBoxLayout* dataLayout = new QVBoxLayout();
     dataLayout->addLayout(createInvoiceComboLayout());
     dataLayout->addLayout(m_invoiceNumber->getLayout());
     dataLayout->addLayout(m_companyName->getLayout());
-    dataLayout->addStretch();
-
-    return dataLayout;
-}
-
-QVBoxLayout* QTStartUpWindow::createTraderDataLayout()
-{
-    m_traderName = new QTEditBoxLine(m_traderNameMsg, MAX_TRADER_NAME_LENGTH);
-    m_traderSurname = new QTEditBoxLine(m_traderSurnameMsg, MAX_TRADER_SECOND_NAME_LENGTH);
-
-    connect(m_traderName, SIGNAL(editBoxChanged(const QString&)), this, SLOT(personalDataChanged(const QString&)));
-    connect(m_traderSurname, SIGNAL(editBoxChanged(const QString&)), this, SLOT(personalDataChanged(const QString&)));
-
-    QVBoxLayout* dataLayout = new QVBoxLayout();
     dataLayout->addLayout(m_traderName->getLayout());
     dataLayout->addLayout(m_traderSurname->getLayout());
     dataLayout->addStretch();
@@ -113,6 +125,7 @@ QHBoxLayout* QTStartUpWindow::createInvoiceComboLayout()
     QHBoxLayout* comboLayout = new QHBoxLayout();
     comboLayout->addWidget(new QLabel(m_invoiceComboeMsg));
     comboLayout->addWidget(m_invoiceCombo);
+    comboLayout->addStretch();
 
     return comboLayout;
 }
@@ -146,4 +159,30 @@ void QTStartUpWindow::activateButton()
     {
         m_proceedButton->setEnabled(true);
     }
+}
+
+void QTStartUpWindow::exitPressed()
+{
+    emit startUpWindowEvent(UIE_EXIT);
+}
+
+void QTStartUpWindow::proceedPressed()
+{
+    m_generalData.companyName(m_companyName->getEditText());
+    m_generalData.invoiceId(m_invoiceNumber->getEditText().toUInt());
+    m_generalData.invoiceType(Utils::invoiceTypes().key(m_invoiceCombo->currentText()));
+    m_generalData.traderName(m_traderName->getEditText());
+    m_generalData.traderSecondName(m_traderSurname->getEditText());
+    m_generalData.date(m_calendar->selectedDate());
+    emit startUpWindowEvent(UIE_STARTUP_PROCEED);
+}
+
+void QTStartUpWindow::openCustomersPressed()
+{
+    emit startUpWindowEvent(UIE_OPEN_CUSTOMERS_DB);
+}
+
+void QTStartUpWindow::openGoodsPressed()
+{
+    emit startUpWindowEvent(UIE_OPEN_GOODS_DB);
 }
