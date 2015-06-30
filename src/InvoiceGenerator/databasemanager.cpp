@@ -13,8 +13,21 @@ DataBaseManager::~DataBaseManager()
 {
 }
 
+bool DataBaseManager::reopenDB(const QString& type, const QString& host, const QString& name,const QString& user,
+    const QString& password)
+{
+    if (!m_isDBReady)
+    {
+        return false;
+    }
+
+    m_isDBReady = false;
+    m_db.close();
+    return openDB(type, host, name, user, password);
+}
+
 bool DataBaseManager::openDB(const QString& type, const QString& host, const QString& name,const QString& user,
-              const QString& password)
+    const QString& password)
 {
     if (m_isDBReady)
     {

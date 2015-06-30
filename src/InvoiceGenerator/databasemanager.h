@@ -28,6 +28,8 @@ public:
     QSqlDatabase& database() { return m_db; }
     bool isDataBaseReady() const { return m_isDBReady; }
 
+    bool reopenDB(const QString& type, const QString& host, const QString& name,const QString& user,
+                  const QString& password);
     bool openDB(const QString& type, const QString& host, const QString& name,const QString& user,
                   const QString& password);
 
