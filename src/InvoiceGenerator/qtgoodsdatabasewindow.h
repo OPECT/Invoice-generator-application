@@ -14,6 +14,7 @@ public:
 
 protected slots:
     void addItemButtonEvent();
+    void backButtonEvent();
 
 private:
     const DataBaseData& m_dataBaseData;

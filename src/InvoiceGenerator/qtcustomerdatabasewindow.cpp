@@ -19,6 +19,7 @@ QTCustomerDataBaseWindow::QTCustomerDataBaseWindow(const TableHandler& sqlHandle
 
     connect(m_addItemButton, SIGNAL(clicked()), this, SLOT(addItemButtonEvent()));
     connect(m_deleteItemButton, SIGNAL(clicked()), this, SLOT(deleteItemButtonEvent()));
+    connect(m_backButton, SIGNAL(clicked()), this, SLOT(backButtonEvent()));
     m_mainWidget->setLayout(wndLayout);
 }
 
@@ -32,10 +33,18 @@ void QTCustomerDataBaseWindow::addItemButtonEvent()
 
     quint16 newRowIndex = m_dataModel->rowCount();
     m_dataModel->insertRows(newRowIndex, 1);
-    m_dataModel->setData(m_dataModel->index(newRowIndex, QSQLCustomerModel::CDC_NAME), dlg.customerName());
-    m_dataModel->setData(m_dataModel->index(newRowIndex, QSQLCustomerModel::CDC_REGION), dlg.customerRegion());
-    m_dataModel->setData(m_dataModel->index(newRowIndex, QSQLCustomerModel::CDC_MULTIPLIER), dlg.customerDiscount());
+    m_dataModel->setData(m_dataModel->index(newRowIndex, QSQLCustomerModel::CDC_NAME), dlg.customerName(),
+                         Qt::UserRole);
+    m_dataModel->setData(m_dataModel->index(newRowIndex, QSQLCustomerModel::CDC_REGION), dlg.customerRegion(),
+                         Qt::UserRole);
+    m_dataModel->setData(m_dataModel->index(newRowIndex, QSQLCustomerModel::CDC_MULTIPLIER), dlg.customerDiscount(),
+                         Qt::UserRole);
     m_dataModel->submitAll();
 
     // XXX think about switching tabs in case new region was entered
+}
+
+void QTCustomerDataBaseWindow::backButtonEvent()
+{
+    emit dataBaseWindowEvent(UIE_BACK, QVariant());
 }

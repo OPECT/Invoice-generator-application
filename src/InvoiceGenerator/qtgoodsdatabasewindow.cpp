@@ -9,7 +9,7 @@
 
 QTGoodsDataBaseWindow::QTGoodsDataBaseWindow(const TableHandler& sqlHandler, QSqlTableModel* model,
     const QString& name, const DataBaseData& dbData, QObject* parent) :
-    QTDataBaseWindow(sqlHandler, model, name, dbData.customerRegionColumn(), parent), m_dataBaseData(dbData),
+    QTDataBaseWindow(sqlHandler, model, name, dbData.goodCategoryColumn(), parent), m_dataBaseData(dbData),
     m_addGoodsMsg(tr("Add New Good"))
 {
     QVBoxLayout* wndLayout = new QVBoxLayout();
@@ -19,6 +19,7 @@ QTGoodsDataBaseWindow::QTGoodsDataBaseWindow(const TableHandler& sqlHandler, QSq
 
     connect(m_addItemButton, SIGNAL(clicked()), this, SLOT(addItemButtonEvent()));
     connect(m_deleteItemButton, SIGNAL(clicked()), this, SLOT(deleteItemButtonEvent()));
+    connect(m_backButton, SIGNAL(clicked()), this, SLOT(backButtonEvent()));
 
     m_mainWidget->setLayout(wndLayout);
 }
@@ -33,12 +34,17 @@ void QTGoodsDataBaseWindow::addItemButtonEvent()
 
     quint16 newRowIndex = m_dataModel->rowCount();
     m_dataModel->insertRows(newRowIndex, 1);
-    m_dataModel->setData(m_dataModel->index(newRowIndex, QSQLGoodsModel::GDC_NAME), dlg.goodName());
-    m_dataModel->setData(m_dataModel->index(newRowIndex, QSQLGoodsModel::GDC_TYPE), dlg.goodType());
-    m_dataModel->setData(m_dataModel->index(newRowIndex, QSQLGoodsModel::GDC_PRICE), dlg.goodPrice());
-    m_dataModel->setData(m_dataModel->index(newRowIndex, QSQLGoodsModel::GDC_CATEGORY), dlg.goodCategory());
+    m_dataModel->setData(m_dataModel->index(newRowIndex, QSQLGoodsModel::GDC_NAME), dlg.goodName(), Qt::UserRole);
+    m_dataModel->setData(m_dataModel->index(newRowIndex, QSQLGoodsModel::GDC_TYPE), dlg.goodType(), Qt::UserRole);
+    m_dataModel->setData(m_dataModel->index(newRowIndex, QSQLGoodsModel::GDC_PRICE), dlg.goodPrice(), Qt::UserRole);
+    m_dataModel->setData(m_dataModel->index(newRowIndex, QSQLGoodsModel::GDC_CATEGORY), dlg.goodCategory(),
+                         Qt::UserRole);
     m_dataModel->submitAll();
 
 // XXX think about switching tabs in case new region was entered
 }
 
+void QTGoodsDataBaseWindow::backButtonEvent()
+{
+    emit dataBaseWindowEvent(UIE_BACK, QVariant());
+}

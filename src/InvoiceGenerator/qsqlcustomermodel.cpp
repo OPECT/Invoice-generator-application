@@ -7,9 +7,15 @@ QSQLCustomerModel::QSQLCustomerModel(QObject * parent, QSqlDatabase db) : QSqlTa
 
 bool QSQLCustomerModel::setData(const QModelIndex &index, const QVariant &value, int role)
 {
-    if (!index.isValid() || role != Qt::EditRole)
+    if (!index.isValid() || (role != Qt::EditRole && role != Qt::UserRole))
     {
         return false;
+    }
+
+    if (role == Qt::UserRole)
+    {
+        // user role - data validation should be performed within add dialog.
+        return QSqlTableModel::setData(index, value);
     }
 
     switch(index.column())
