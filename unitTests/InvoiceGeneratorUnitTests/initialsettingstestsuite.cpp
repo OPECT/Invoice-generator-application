@@ -116,8 +116,11 @@ bool InitialSettingsTestSuite::saveGeneralData_BAD()
 
 bool InitialSettingsTestSuite::saveDBData_OK()
 {
-    DataBaseData data(m_tableName, m_tableName, m_userName, m_passwrod, m_fileName);
+    DataBaseData data;
     UnitTestPurposeInitialSettings settings;
+    data.userName(m_userName);
+    data.password(m_passwrod);
+    data.dataBaseFile(m_fileName);
 
     settings.saveDBInfo(data);
 
@@ -144,7 +147,7 @@ bool InitialSettingsTestSuite::saveDBData_OK()
 
 bool InitialSettingsTestSuite::saveDBData_BAD()
 {
-    DataBaseData data(m_empty, m_empty, m_empty, m_empty, m_empty);
+    DataBaseData data;
     UnitTestPurposeInitialSettings settings;
 
     // Check that data from previous test are stored
@@ -246,9 +249,13 @@ bool InitialSettingsTestSuite::propagateGeneralData_BAD()
 
 bool InitialSettingsTestSuite::propagateDBData_OK()
 {
-    DataBaseData initData(m_tableName, m_tableName, m_userName, m_passwrod, m_fileName);
-    DataBaseData resultData(m_tableName, m_tableName, m_empty, m_empty, m_empty);
+    DataBaseData initData;
+    DataBaseData resultData;
     UnitTestPurposeInitialSettings settings;
+
+    initData.userName(m_userName);
+    initData.password(m_passwrod);
+    initData.dataBaseFile(m_fileName);
 
     settings.saveDBInfo(initData);
     settings.propagateDBInfo(resultData);
@@ -273,19 +280,19 @@ bool InitialSettingsTestSuite::propagateDBData_BAD()
 {
     UnitTestPurposeInitialSettings sets;
     QSettings settings(sets.organizationName(), sets.applicationName());
-    DataBaseData data(m_tableName, m_tableName, m_userName, m_passwrod, m_fileName);
+    DataBaseData data;
 
     settings.clear();
     sets.propagateDBInfo(data);
-    if (data.userName() != m_empty)
+    if (data.userName() != sets.defaultUserName())
     {
         return false;
     }
-    if (data.password() != m_empty)
+    if (data.password() != sets.defaultPasswordKey())
     {
         return false;
     }
-    if (data.dataBaseFile() != m_empty)
+    if (data.dataBaseFile() != sets.defaultDBFileNameKey())
     {
         return false;
     }

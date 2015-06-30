@@ -13,7 +13,9 @@ class InitialSettings : public QObject
     Q_OBJECT
 public:
     explicit InitialSettings(const QString& org = "FamilyInc.", const QString &app = "Bussiness Application",
-                             QObject *parent = 0);
+                             const QString& defaultFileName = "./InvoiceAppDB.badb",
+                             const QString& defaultDBUserName = "User", const QString& defaultDBPassword = "pwd123",
+                             QObject* parent = 0);
     void saveGeneralInfo(const GeneralInvoiceData &data);
     void saveDBInfo(const DataBaseData &data);
 
@@ -37,6 +39,10 @@ protected:
     QString m_DBUserNameKey;
     QString m_DBUserPwdKey;
     QString m_DBFileNameKey;
+
+    QString m_defaultDBFileName;
+    QString m_defaultDBUserName;
+    QString m_defaultDBPassword;
 };
 
 #endif // INITIALSETTINGS_H

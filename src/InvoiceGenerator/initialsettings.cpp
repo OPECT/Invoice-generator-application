@@ -2,11 +2,14 @@
 #include "generalinvoicedata.h"
 #include "databasedata.h"
 
-InitialSettings::InitialSettings(const QString& org, const QString &app, QObject *parent) :
-    QObject(parent), m_orgName(org), m_appName(app), m_settings(m_orgName, m_appName), m_dataBaseGroupKey("DataBase"),
-    m_generalGroupKey("General"), m_generalCompanyNameKey("Company Name"), m_generalInvoiceTypeKey("Invoice Type"),
-    m_generalTraderNameKey("Trader Name"), m_generalTraderSurnameKey("Trader Surname"), m_DBUserNameKey("User Name"),
-    m_DBUserPwdKey("Password"), m_DBFileNameKey("DataBase File")
+InitialSettings::InitialSettings(const QString& org, const QString& app, const QString& defaultFileName,
+      const QString& defaultDBUserName, const QString& defaultDBPassword, QObject* parent)
+    : QObject(parent), m_orgName(defaultFileName), m_appName(app), m_settings(m_orgName, m_appName),
+      m_dataBaseGroupKey("DataBase"), m_generalGroupKey("General"), m_generalCompanyNameKey("Company Name"),
+      m_generalInvoiceTypeKey("Invoice Type"), m_generalTraderNameKey("Trader Name"),
+      m_generalTraderSurnameKey("Trader Surname"), m_DBUserNameKey("User Name"), m_DBUserPwdKey("Password"),
+      m_DBFileNameKey("DataBase File"), m_defaultDBFileName(defaultFileName), m_defaultDBUserName(defaultDBUserName),
+      m_defaultDBPassword(defaultDBPassword)
 {
 }
 
@@ -33,8 +36,7 @@ void InitialSettings::propagateGeneralInfo(GeneralInvoiceData &data)
 {
     m_settings.beginGroup(m_generalGroupKey);
     data.companyName(m_settings.value(m_generalCompanyNameKey, "").toString());
-    data.invoiceType(static_cast<INVOICE_TYPE>(m_settings.value(m_generalInvoiceTypeKey,
-                                                                                   0).toInt()));
+    data.invoiceType(static_cast<INVOICE_TYPE>(m_settings.value(m_generalInvoiceTypeKey, 0).toInt()));
     data.traderName(m_settings.value(m_generalTraderNameKey, "").toString());
     data.traderSecondName(m_settings.value(m_generalTraderSurnameKey, "").toString());
     m_settings.endGroup();
@@ -43,8 +45,8 @@ void InitialSettings::propagateGeneralInfo(GeneralInvoiceData &data)
 void InitialSettings::propagateDBInfo(DataBaseData &data)
 {
     m_settings.beginGroup(m_dataBaseGroupKey);
-    data.userName(m_settings.value(m_DBUserNameKey, "").toString());
-    data.password(m_settings.value(m_DBUserPwdKey, "").toString());
-    data.dataBaseFile(m_settings.value(m_DBFileNameKey, "").toString());
+    data.userName(m_settings.value(m_DBUserNameKey, m_defaultDBUserName).toString());
+    data.password(m_settings.value(m_DBUserPwdKey, m_defaultDBPassword).toString());
+    data.dataBaseFile(m_settings.value(m_DBFileNameKey, m_defaultDBFileName).toString());
     m_settings.endGroup();
 }

@@ -19,6 +19,9 @@ public:
     const QString& userNameKey() { return m_DBUserNameKey; }
     const QString& passwordKey() { return m_DBUserPwdKey; }
     const QString& dbFileNameKey() { return m_DBFileNameKey; }
+    const QString& defaultUserName() { return m_defaultDBUserName; }
+    const QString& defaultPasswordKey() { return m_defaultDBPassword; }
+    const QString& defaultDBFileNameKey() { return m_defaultDBFileName; }
 };
 
 #endif // UNITTESTPURPOSEINITIALSETTINGS_H

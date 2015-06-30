@@ -31,4 +31,17 @@ namespace Utils
 
         return files;
     }
+    QStringList dataBaseExtensions()
+    {
+        QStringList extenstionList;
+        extenstionList.append(".badb");
+        return extenstionList;
+    }
+    TableNamesList tableNames()
+    {
+        TableNamesList list;
+        list[TN_CUSTOMERS] = "Customers";
+        list[TN_GOODS] = "Goods";
+        return list;
+    }
 }
