@@ -16,10 +16,10 @@ void MessageBoxErrorReport::reportError(const QString& msg, ErrorSeverityLevel l
 {
     if (level == ErrorReport::ESL_CRITICAL)
     {
-        QMessageBox::critical(0, m_trErrorTitle, msg);
+        QMessageBox::critical(0, m_trErrorTitle, tr(msg.toStdString().c_str()));
     }
     else
     {
-        QMessageBox::warning(0, m_trWarningTitle, msg);
+        QMessageBox::warning(0, m_trWarningTitle, tr(msg.toStdString().c_str()));
     }
 }

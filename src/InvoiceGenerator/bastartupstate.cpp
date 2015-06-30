@@ -58,6 +58,6 @@ void BAStartUpState::handle(UI_EVENTS event, QVariant data)
         m_engine.switchState(BAS_CUSTOMERS_DB);
         break;
     default:
-        report.reportError(tr("Error in StartUp state"));
+        report.reportError("Error in StartUp state");
     }
 }

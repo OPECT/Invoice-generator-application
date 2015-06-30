@@ -26,14 +26,14 @@ bool XLStandardInvoiceFormatBuilder::createDocument(const QString &outputFileNam
     m_isDocumentReady = m_document.create(true);
     if (!m_isDocumentReady)
     {
-        reportError(tr("Create Document Error: Can't create  document"));
+        reportError("Create Document Error: Can't create  document");
         return false;
     }
 
     if (!isTemplateValid())
     {
         m_isDocumentReady = false;
-        reportError(tr("Create Document Error: Invoice template is invalid"));
+        reportError("Create Document Error: Invoice template is invalid");
         return false;
     }
     m_outputFile = outputFileName;
@@ -47,20 +47,20 @@ bool XLStandardInvoiceFormatBuilder::addInvoicePage(const QString &supplier, con
 
     if (!m_isDocumentReady)
     {
-        reportError(tr("Add Invoice Page Error: Document is not ready"));
+        reportError("Add Invoice Page Error: Document is not ready");
         return false;
     }
 
     if (!m_document.copySheetFromSource(m_templateSheetName, invoiceSheetName))
     {
-        reportError(tr("Add Invoice Page Error: Can't create invoice sheet"));
+        reportError("Add Invoice Page Error: Can't create invoice sheet");
         return false;
     }
 
     if (!m_document.changeCurrentSheet(invoiceSheetName))
     {
         m_document.deleteSheet(invoiceSheetName);
-        reportError(tr("Add Invoice Page Error: Can't switch to new invoice sheet"));
+        reportError("Add Invoice Page Error: Can't switch to new invoice sheet");
         return false;
     }
 
@@ -69,14 +69,14 @@ bool XLStandardInvoiceFormatBuilder::addInvoicePage(const QString &supplier, con
         !writeCellDouble(GDR_INVOICE_ID, GDC_INVOICE_ID, id))
     {
         m_document.deleteSheet(invoiceSheetName);
-        reportError(tr("Add Invoice Page Error: Can't update new invoice with general data"));
+        reportError("Add Invoice Page Error: Can't update new invoice with general data");
         return false;
     }
 
     if (!updateDate(date))
     {
         m_document.deleteSheet(invoiceSheetName);
-        reportError(tr("Add Invoice Page Error: Can't update date"));
+        reportError("Add Invoice Page Error: Can't update date");
         return false;
     }
 
@@ -90,13 +90,13 @@ bool XLStandardInvoiceFormatBuilder::addInvoiceItem(const QString &name, const Q
 {
     if (!m_isSheetReady)
     {
-        reportError(tr("Add Item Error: Sheet is not ready"));
+        reportError("Add Item Error: Sheet is not ready");
         return false;
     }
 
     if (m_itemCount >= MAX_INVOICE_ITEMS)
     {
-        reportError(tr("Add Item Error: Invoice is Full"));
+        reportError("Add Item Error: Invoice is Full");
         return false;
     }
 
@@ -118,7 +118,7 @@ bool XLStandardInvoiceFormatBuilder::addInvoideSummary()
 {
     if (!m_isSheetReady)
     {
-        reportError(tr("Add Invoice Summary Error: Sheet is not ready"));
+        reportError("Add Invoice Summary Error: Sheet is not ready");
         return false;
     }
     return true;
@@ -128,25 +128,25 @@ bool XLStandardInvoiceFormatBuilder::saveDocument(bool overwrite)
 {
     if (!m_isDocumentReady)
     {
-        reportError(tr("Save Document Error: Document is not ready"));
+        reportError("Save Document Error: Document is not ready");
         return false;
     }
 
     if (m_outputFile.isEmpty())
     {
-        reportError(tr("Save Document Error: No output file name provided"));
+        reportError("Save Document Error: No output file name provided");
         return false;
     }
 
     if (!m_document.deleteSheet(m_templateSheetName))
     {
-        reportError(tr("Save Document Error: Can't delete Invoice Sheet Template"));
+        reportError("Save Document Error: Can't delete Invoice Sheet Template");
         return false;
     }
 
     if (!m_document.save(m_outputFile, overwrite))
     {
-        reportError(tr("Save Document Error: Can't save invoice file"));
+        reportError("Save Document Error: Can't save invoice file");
         return false;
     }
 
@@ -187,7 +187,7 @@ bool XLStandardInvoiceFormatBuilder::writeCellString(quint32 row, quint32 col, c
 {
     if (!m_isDocumentReady || !m_document.writeString(row, col, data))
     {
-        reportError(tr("Error while writing \"%1\"").arg(data));
+        reportError("Error while writing " + data);
         return false;
     }
     return true;
@@ -197,7 +197,7 @@ bool XLStandardInvoiceFormatBuilder::writeCellDouble(quint32 row, quint32 col, d
 {
     if (!m_isDocumentReady || !m_document.writeDouble(row, col, data))
     {
-        reportError(tr("Error while writing \"%1\"").arg(QString::number(data)));
+        reportError("Error while writing " + QString::number(data));
         return false;
     }
     return true;
