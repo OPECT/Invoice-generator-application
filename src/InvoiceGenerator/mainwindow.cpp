@@ -30,3 +30,8 @@ void MainWindow::addWindow(QTWindowBase* window)
 {
     m_centralWidget->addWidget(window->mainWidget());
 }
+
+void MainWindow::removeWindow(QTWindowBase* window)
+{
+    m_centralWidget->removeWidget(window->mainWidget());
+}

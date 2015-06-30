@@ -22,6 +22,7 @@ public:
 
     void showWindow(QTWindowBase* window);
     void addWindow(QTWindowBase* window);
+    void removeWindow(QTWindowBase* window);
 
 private:
     QStackedWidget* m_centralWidget;
