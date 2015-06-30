@@ -1,5 +1,6 @@
 #include "qtdatabasewindow.h"
 #include "tablehandler.h"
+#include "bautils.h"
 
 #include <QHBoxLayout>
 #include <QWidget>
@@ -9,15 +10,32 @@
 #include <QTableView>
 #include <QListIterator>
 #include <QFileDialog>
+#include <QStringListIterator>
 
 QTDataBaseWindow::QTDataBaseWindow(const TableHandler& sqlHandler, QSqlTableModel* model, const QString& name,
                                    const QString& filter, QObject* parent)
     : QTWindowBase(name, parent), m_dataModel(model), m_sqlHandler(sqlHandler), m_filterColumn(filter),
       m_openDBButtonMsg(tr("Open Data Base")), m_saveDBButtonMsg(tr("Save Data Base")),
       m_deleteItemButtonMsg(tr("Delete Item")), m_addItemButtonMsg(tr("Add New Item")), m_backButtonMsg(tr("Back")),
-      m_openDBMsg(tr("Open Data Base")), m_saveDBMsg(tr("Save Data Base")), m_filterDBMsg(tr("DataBase files")),
-      m_dbFilterList("(*.badb)")
+      m_openDBMsg(tr("Open Data Base")), m_saveDBMsg(tr("Save Data Base")), m_filterDBMsg(tr("DataBase files"))
 {
+    QStringListIterator iter(Utils::dataBaseExtensions());
+    if (iter.hasNext())
+    {
+        m_dbFilterList += "(*" + iter.next() + ")";
+    }
+
+    while(iter.hasNext())
+    {
+        m_dbFilterList += " (*" + iter.next() + ")";
+    }
+
+}
+
+void QTDataBaseWindow::show()
+{
+    tabChanged(0);
+    QTWindowBase::show();
 }
 
 QHBoxLayout* QTDataBaseWindow::createTableGridLayout()
@@ -123,7 +141,7 @@ void QTDataBaseWindow::openDBButtonEvent()
                                                     m_filterDBMsg + " " + m_dbFilterList);
     if (!fileName.isEmpty())
     {
-        emit dataBaseChanged(fileName);
+        emit dataBaseWindowEvent(UIE_NEW_DATABASE_LOADED, fileName);
     }
 }
 
@@ -132,6 +150,6 @@ void QTDataBaseWindow::saveDBButtonEvent()
     QString fileName = QFileDialog::getSaveFileName(m_mainWidget, m_saveDBMsg, ".", m_filterDBMsg + m_dbFilterList);
     if (!fileName.isEmpty())
     {
-        emit dataBaseSaved(fileName);
+        emit dataBaseWindowEvent(UIE_DATA_BASE_SAVED, fileName);
     }
 }

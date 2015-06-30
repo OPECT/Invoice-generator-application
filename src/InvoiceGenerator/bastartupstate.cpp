@@ -11,7 +11,7 @@ BAStartUpState::BAStartUpState(BAEngine& engine, MainWindow& wnd) : BAState(engi
     m_window = new QTStartUpWindow(m_engine.invoiceData(), m_windowTitle);
     wnd.addWindow(m_window);
 
-    connect(m_window, SIGNAL(startUpWindowEvent(UI_EVENTS)), this, SLOT(handle(UI_EVENTS)));
+    connect(m_window, SIGNAL(startUpWindowEvent(UI_EVENTS, QVariant)), this, SLOT(handle(UI_EVENTS, QVariant)));
 }
 
 BAStartUpState::~BAStartUpState()
@@ -25,7 +25,21 @@ void BAStartUpState::start(MainWindow &wnd)
     wnd.showWindow(m_window);
 }
 
-void BAStartUpState::handle(UI_EVENTS event)
+void BAStartUpState::notify(ALL_STATES_EVENTS event)
+{
+    MessageBoxErrorReport report;
+
+    switch(event)
+    {
+    case ASE_DATA_BASE_REOPENED:
+        break;
+    default:
+        report.reportError("Error during start up state notification");
+        break;
+    }
+}
+
+void BAStartUpState::handle(UI_EVENTS event, QVariant data)
 {
     MessageBoxErrorReport report;
 
@@ -36,6 +50,12 @@ void BAStartUpState::handle(UI_EVENTS event)
         break;
     case UIE_STARTUP_PROCEED:
         m_engine.storeInvoiceDataNow();
+        break;
+    case UIE_OPEN_GOODS_DB:
+        m_engine.switchState(BAS_GOODS_DB);
+        break;
+    case UIE_OPEN_CUSTOMERS_DB:
+        m_engine.switchState(BAS_CUSTOMERS_DB);
         break;
     default:
         report.reportError(tr("Error in StartUp state"));

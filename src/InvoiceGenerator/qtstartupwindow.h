@@ -5,6 +5,7 @@
 #include "batypes.h"
 
 #include <QIntValidator>
+#include <QVariant>
 
 class QPushButton;
 class QHBoxLayout;
@@ -24,7 +25,7 @@ public:
     virtual void show();
 
 signals:
-    void startUpWindowEvent(UI_EVENTS event);
+    void startUpWindowEvent(UI_EVENTS event, QVariant = QVariant());
 
 private slots:
     void personalDataChanged(const QString& text);

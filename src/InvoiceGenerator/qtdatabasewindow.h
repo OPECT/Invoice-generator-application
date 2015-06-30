@@ -2,8 +2,10 @@
 #define QTDATABASEWINDOW_H
 
 #include "qtwindowbase.h"
+#include "batypes.h"
 #include <QList>
 #include <QString>
+#include <QVariant>
 
 class QPushButton;
 class QHBoxLayout;
@@ -18,10 +20,10 @@ class QTDataBaseWindow : public QTWindowBase
     Q_OBJECT
 public:
     virtual ~QTDataBaseWindow() { }
+    virtual void show();
 
 signals:
-    void dataBaseChanged(const QString& fileName);
-    void dataBaseSaved(const QString& fileName);
+    void dataBaseWindowEvent(UI_EVENTS event, QVariant data = QVariant());
 
 protected slots:
     void tabChanged(qint32 index);

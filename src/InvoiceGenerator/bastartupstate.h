@@ -5,7 +5,6 @@
 #include <QString>
 
 class QTStartUpWindow;
-class BAEngine;
 
 class BAStartUpState : public BAState
 {
@@ -16,9 +15,10 @@ public:
     ~BAStartUpState();
 
     virtual void start(MainWindow& wnd);
+    virtual void notify(ALL_STATES_EVENTS event);
 
 public slots:
-    virtual void handle(UI_EVENTS event);
+    virtual void handle(UI_EVENTS event, QVariant data);
 
 private:
     QTStartUpWindow* m_window;
