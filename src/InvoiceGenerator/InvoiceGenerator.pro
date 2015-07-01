@@ -19,7 +19,6 @@ SOURCES += main.cpp \
     databasedata.cpp \
     messageboxerrorreport.cpp \
     qtadddatadialog.cpp \
-    qtaddcategorydialog.cpp \
     qteditboxline.cpp \
     xlsdocumentwrapper.cpp \
     xlsstandardinvoicevalidator.cpp \
@@ -44,7 +43,8 @@ SOURCES += main.cpp \
     mainwindow.cpp \
     baengine.cpp \
     bastate.cpp \
-    bastartupstate.cpp
+    bastartupstate.cpp \
+    bamodifydbbasestate.cpp
 
 HEADERS  += invoiceitem.h \
     invoicedata.h \
@@ -53,7 +53,6 @@ HEADERS  += invoiceitem.h \
     errorreport.h \
     messageboxerrorreport.h \
     qtadddatadialog.h \
-    qtaddcategorydialog.h \
     qteditboxline.h \
     invoicehandlercreator.h \
     standardxlsformatinvoicehandlercreator.h \
@@ -83,7 +82,9 @@ HEADERS  += invoiceitem.h \
     mainwindow.h \
     baengine.h \
     bastate.h \
-    bastartupstate.h
+    bastartupstate.h \
+    bamodifydbstate.h \
+    bamodifydbbasestate.h
 
 FORMS += \
     mainwindow.ui

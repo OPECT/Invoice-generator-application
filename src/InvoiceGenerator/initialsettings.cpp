@@ -4,7 +4,7 @@
 
 InitialSettings::InitialSettings(const QString& org, const QString& app, const QString& defaultFileName,
       const QString& defaultDBUserName, const QString& defaultDBPassword, QObject* parent)
-    : QObject(parent), m_orgName(defaultFileName), m_appName(app), m_settings(m_orgName, m_appName),
+    : QObject(parent), m_orgName(org), m_appName(app), m_settings(m_orgName, m_appName),
       m_dataBaseGroupKey("DataBase"), m_generalGroupKey("General"), m_generalCompanyNameKey("Company Name"),
       m_generalInvoiceTypeKey("Invoice Type"), m_generalTraderNameKey("Trader Name"),
       m_generalTraderSurnameKey("Trader Surname"), m_DBUserNameKey("User Name"), m_DBUserPwdKey("Password"),
