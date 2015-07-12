@@ -41,7 +41,7 @@ private:
     QVBoxLayout* createInvoiceDataLayout();
     QHBoxLayout* createInvoiceComboLayout();
 
-    INVOICE_TYPE currentComboItemToInvoiceType();
+    INVOICE_TYPE selectedInvoiceType();
 
 private:
     GeneralInvoiceData& m_generalData;

@@ -57,7 +57,7 @@ QHBoxLayout* QTAddGoodItemDialog::createGoodTypeLayout()
 
     while (iter.hasNext())
     {
-        m_goodTypeCombo->addItem(tr(iter.next().value().toUtf8()), "");
+        m_goodTypeCombo->addItem(tr(iter.next().value().toStdString().c_str()), "");
     }
     m_goodTypeCombo->setEditable(false);
 

@@ -113,12 +113,12 @@ QHBoxLayout* QTStartUpWindow::createInvoiceComboLayout()
 {
     m_invoiceCombo = new QComboBox();
 
-    QMap<INVOICE_TYPE, QString> types(Utils::invoiceTypes());
-    QMapIterator<INVOICE_TYPE, QString> invoiceTypeIter(types);
+    QMapIterator<INVOICE_TYPE, QString> invoiceTypeIter(Utils::invoiceTypes());
 
     while (invoiceTypeIter.hasNext())
     {
-        m_invoiceCombo->addItem(tr(invoiceTypeIter.next().value().toStdString().c_str()), "");
+        invoiceTypeIter.next();
+        m_invoiceCombo->addItem(tr(invoiceTypeIter.value().toStdString().c_str()), invoiceTypeIter.key());
     }
     connect(m_invoiceCombo, SIGNAL(activated(int)), this, SLOT(activateButton()));
 
@@ -130,9 +130,10 @@ QHBoxLayout* QTStartUpWindow::createInvoiceComboLayout()
     return comboLayout;
 }
 
-INVOICE_TYPE QTStartUpWindow::currentComboItemToInvoiceType()
+INVOICE_TYPE QTStartUpWindow::selectedInvoiceType()
 {
-    return Utils::invoiceTypes().key(m_invoiceCombo->currentText());
+    bool result;
+    return static_cast<INVOICE_TYPE>(m_invoiceCombo->currentData().toUInt(&result));
 }
 
 void QTStartUpWindow::personalDataChanged(const QString& text)
@@ -151,7 +152,7 @@ void QTStartUpWindow::activateButton()
 {
     if (m_invoiceNumber->getEditText().isEmpty() || m_companyName->getEditText().isEmpty() ||
         m_traderName->getEditText().isEmpty() || m_traderSurname->getEditText().isEmpty() ||
-        !QFile::exists(Utils::invoiceTypeFiles().value(currentComboItemToInvoiceType())))
+        !QFile::exists(Utils::invoiceTypeFiles().value(selectedInvoiceType())))
     {
         m_proceedButton->setEnabled(false);
     }
@@ -170,7 +171,7 @@ void QTStartUpWindow::proceedPressed()
 {
     m_generalData.companyName(m_companyName->getEditText());
     m_generalData.invoiceId(m_invoiceNumber->getEditText().toUInt());
-    m_generalData.invoiceType(Utils::invoiceTypes().key(m_invoiceCombo->currentText()));
+    m_generalData.invoiceType(selectedInvoiceType());
     m_generalData.traderName(m_traderName->getEditText());
     m_generalData.traderSecondName(m_traderSurname->getEditText());
     m_generalData.date(m_calendar->selectedDate());

@@ -6,8 +6,8 @@ namespace Utils
     {
         GoodTypeList types;
 
-        types[GT_KG] = "kg";
-        types[GT_NUM] = "num.";
+        types[GT_KG] = QT_TRANSLATE_NOOP("QTAddGoodItemDialog", "kg");
+        types[GT_NUM] = QT_TRANSLATE_NOOP("QTAddGoodItemDialog", "num.");
 
         return types;
     }
@@ -16,8 +16,8 @@ namespace Utils
     {
         InvoiceTypeList types;
 
-        types[IT_NONE] = "None";
-        types[IT_SimpleInvoice] = "Standard Invoice";
+        types[IT_NONE] = QT_TRANSLATE_NOOP("QTStartUpWindow", "None");
+        types[IT_SimpleInvoice] = QT_TRANSLATE_NOOP("QTStartUpWindow", "Standard Invoice");
 
         return types;
     }

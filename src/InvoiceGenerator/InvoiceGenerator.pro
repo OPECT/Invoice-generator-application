@@ -11,6 +11,7 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets xlsx
 TARGET = InvoiceGenerator
 TEMPLATE = app
 
+TRANSLATIONS = InvoiceGenerator_ua.ts
 
 SOURCES += main.cpp \
     invoiceitem.cpp \
