@@ -156,6 +156,44 @@
     </message>
 </context>
 <context>
+    <name>QTInvoiceListWindow</name>
+    <message>
+        <location filename="qtinvoicelistwindow.cpp" line="12"/>
+        <source>Invoice Id</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="qtinvoicelistwindow.cpp" line="13"/>
+        <source>Customer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="qtinvoicelistwindow.cpp" line="13"/>
+        <source>Number of Items</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="qtinvoicelistwindow.cpp" line="14"/>
+        <source>Generate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="qtinvoicelistwindow.cpp" line="14"/>
+        <source>Delete</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="qtinvoicelistwindow.cpp" line="15"/>
+        <source>Add Invoice</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="qtinvoicelistwindow.cpp" line="15"/>
+        <source>Back</source>
+        <translation type="unfinished">Назад</translation>
+    </message>
+</context>
+<context>
     <name>QTStartUpWindow</name>
     <message>
         <location filename="qtstartupwindow.cpp" line="16"/>

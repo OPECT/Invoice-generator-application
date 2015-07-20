@@ -2,6 +2,7 @@
 #define INVOICEDATA_H
 
 #include "invoiceitem.h"
+#include "batypes.h"
 #include <QList>
 #include <QString>
 
@@ -17,16 +18,16 @@ public:
     void invoiceID(quint32 id) { m_invoiceID = id; }
     quint32 invoiceID() const { return m_invoiceID; }
 
-    void isLast(bool last) { m_isLast = last; }
+    void setLast(bool last) { m_isLast = last; }
     bool isLast() const { return m_isLast; }
 
     void addItem(const InvoiceItem &item) { m_items.append(item); }
-    const QList<InvoiceItem>& getGoodsList() const { return m_items; }
+    const InvoiceDataList& getGoodsList() const { return m_items; }
 
     double getTotalSummary();
 
 private:
-    QList<InvoiceItem> m_items;
+    InvoiceDataList m_items;
     QString m_customerName;
     quint32 m_invoiceID;
     bool m_isLast;

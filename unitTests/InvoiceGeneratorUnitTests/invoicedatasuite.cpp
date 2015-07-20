@@ -28,7 +28,7 @@ void InvoiceDataSuite::createInvoiceData_OK1()
 
     data.customerName(CustomerName);
     data.invoiceID(InvoiceId);
-    data.isLast(true);
+    data.setLast(true);
 
     CPPUNIT_ASSERT(data.getGoodsList().empty());
 
