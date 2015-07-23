@@ -46,7 +46,6 @@ private:
     QString m_invoiceSheet;
     QString m_newInvoiceSheet;
 
-    QString m_supplier;
     QString m_customer;
     quint32 m_invoiceID;
     quint32 m_newIinvoiceID;

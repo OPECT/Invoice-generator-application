@@ -2,15 +2,13 @@
 #define INVOICEITEM_H
 
 #include <QString>
+#include "batypes.h"
 
 class InvoiceItem
 {
 public:
-    enum GOOD_QUANTITY_TYPE { GQT_NONE, GQT_KG, GQT_NUM };
-
-public:
     InvoiceItem();
-    InvoiceItem(QString, quint32, GOOD_QUANTITY_TYPE, double);
+    InvoiceItem(QString, quint32, GOOT_TYPE, double);
 
     void name(QString name) { m_name = name; }
     const QString& name() const { return m_name; }
@@ -18,8 +16,8 @@ public:
     void quantity(quint32 qaunt) { m_quantity = qaunt; }
     quint32 quantity() const { return m_quantity; }
 
-    void quantityType(GOOD_QUANTITY_TYPE type) { m_quantType = type; }
-    GOOD_QUANTITY_TYPE quantityType() const { return m_quantType; }
+    void quantityType(GOOT_TYPE type) { m_quantType = type; }
+    GOOT_TYPE quantityType() const { return m_quantType; }
 
     void goodPrice(double price) { m_goodPrice = price; }
     double goodPrice() const { return m_goodPrice; }
@@ -29,7 +27,7 @@ public:
 private:
     QString m_name;
     quint32 m_quantity;
-    GOOD_QUANTITY_TYPE m_quantType;
+    GOOT_TYPE m_quantType;
     double m_goodPrice;
 };
 

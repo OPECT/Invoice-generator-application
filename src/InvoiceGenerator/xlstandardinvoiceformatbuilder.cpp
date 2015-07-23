@@ -5,6 +5,7 @@
 
 #include <QDate>
 #include <QStringList>
+#include <QLocale>
 
 // XXX handle template file usage(make it hidden)
 XLStandardInvoiceFormatBuilder::XLStandardInvoiceFormatBuilder(InvoiceDocumentWrapper &document,
@@ -40,8 +41,7 @@ bool XLStandardInvoiceFormatBuilder::createDocument(const QString &outputFileNam
     return true;
 }
 
-bool XLStandardInvoiceFormatBuilder::addInvoicePage(const QString &supplier, const QString &recipient, quint32 id,
-                                                    const QDate &date)
+bool XLStandardInvoiceFormatBuilder::addInvoicePage(const QString &recipient, quint32 id, const QDate &date)
 {
     QString invoiceSheetName = QString("Invoice %1").arg(id);
 
@@ -172,8 +172,8 @@ bool XLStandardInvoiceFormatBuilder::updateDate(const QDate &date)
     quint32 monStartIdx = dateField.indexOf("_", 0);
     quint32 monEndIdx = dateField.indexOf(" ", monStartIdx);
 
-    // XXX translate it!!!
-    dateField.replace(monStartIdx, monEndIdx - monStartIdx, QDate::longMonthName(date.month()));
+    QLocale locale(QLocale::Ukrainian, QLocale::Ukraine);
+    dateField.replace(monStartIdx, monEndIdx - monStartIdx, locale.monthName(date.month()));
 
     quint32 yearStartIdx = dateField.indexOf("200", 0);
     quint32 yearEndIdx = dateField.indexOf("_", yearStartIdx);

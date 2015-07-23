@@ -11,8 +11,8 @@ static const quint32 InvoiceId = 111;
 static const quint32 GoodCount1 = 12;
 static const quint32 GoodCount2 = 10;
 
-static const InvoiceItem::GOOD_QUANTITY_TYPE GoodType1 = InvoiceItem::GQT_NUM;
-static const InvoiceItem::GOOD_QUANTITY_TYPE GoodType2 = InvoiceItem::GQT_KG;
+static const GOOT_TYPE GoodType1 = GT_NUM;
+static const GOOT_TYPE GoodType2 = GT_KG;
 
 static const double GoodPrice1 = 12.34;
 static const double GoodPrice2 = 2.5;

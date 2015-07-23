@@ -14,8 +14,8 @@ public:
     explicit DocInvoiceBuilder(ErrorReport &errorReporter, QObject *parent = 0);
     virtual ~DocInvoiceBuilder() {}
 
-    virtual bool createDocument(const QString &outputFileName) = 0;
-    virtual bool addInvoicePage(const QString &supplier, const QString &recipient, quint32 id, const QDate &date) = 0;
+    virtual bool createDocument(const QString& outputFileName) = 0;
+    virtual bool addInvoicePage(const QString& recipient, quint32 id, const QDate& date) = 0;
     virtual bool addInvoiceItem(const QString &name, const QString &type, double quantity, double price,
                                 double summary) = 0;
     virtual bool addInvoideSummary() = 0;

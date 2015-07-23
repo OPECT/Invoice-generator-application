@@ -18,7 +18,7 @@ public:
     virtual ~XLStandardInvoiceFormatBuilder();
 
     virtual bool createDocument(const QString &outputFileName);
-    virtual bool addInvoicePage(const QString &supplier, const QString &recipient, quint32 id, const QDate &date);
+    virtual bool addInvoicePage(const QString &recipient, quint32 id, const QDate &date);
     virtual bool addInvoiceItem(const QString &name, const QString &type, double quantity, double price,
                                 double summary);
     virtual bool addInvoideSummary();
