@@ -46,7 +46,8 @@ SOURCES += main.cpp \
     bastate.cpp \
     bastartupstate.cpp \
     bamodifydbbasestate.cpp \
-    qtinvoicelistwindow.cpp
+    qtinvoicelistwindow.cpp \
+    bainvoiceliststate.cpp
 
 HEADERS  += invoiceitem.h \
     invoicedata.h \
@@ -87,7 +88,8 @@ HEADERS  += invoiceitem.h \
     bastartupstate.h \
     bamodifydbstate.h \
     bamodifydbbasestate.h \
-    qtinvoicelistwindow.h
+    qtinvoicelistwindow.h \
+    bainvoiceliststate.h
 
 FORMS += \
     mainwindow.ui

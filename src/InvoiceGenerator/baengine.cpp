@@ -6,6 +6,7 @@
 #include "qsqlcustomermodel.h"
 #include "qsqlgoodsmodel.h"
 #include "bamodifydbstate.h"
+#include "bainvoiceliststate.h"
 
 #include <QMapIterator>
 #include <QApplication>
@@ -25,6 +26,7 @@ BAEngine::BAEngine() : m_dbType("QSQLITE"), m_dbHost("localhost")
     m_states[BAS_CUSTOMERS_DB] = new BAModifyDBState<QTCustomerDataBaseWindow, QSQLCustomerModel,
         TN_CUSTOMERS>(*this, m_window);
     m_states[BAS_GOODS_DB] = new BAModifyDBState<QTGoodsDataBaseWindow, QSQLGoodsModel, TN_GOODS>(*this, m_window);
+    m_states[BAS_INVOICE_LIST] = new BAInvoiceListState(*this, m_window);
 }
 
 BAEngine::~BAEngine()

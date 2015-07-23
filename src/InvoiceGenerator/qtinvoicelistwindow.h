@@ -17,8 +17,10 @@ class QTInvoiceListWindow : public QTWindowBase
 public:
     QTInvoiceListWindow(const QString& name, InvoiceList& list, QObject* parent = 0);
 
+    virtual void show();
+
 signals:
-    void dataBaseWindowEvent(UI_EVENTS event, QVariant data = QVariant());
+    void invoiceListEvents(UI_EVENTS event, QVariant data = QVariant());
 
 protected slots:
     void generateInvoiceEvent();
@@ -31,6 +33,7 @@ protected slots:
 private:
     QHBoxLayout* createButtonsLayout();
     QHBoxLayout* createGridLayout();
+    void updateWindow();
 
 private:
     InvoiceList& m_invoiceList;
@@ -52,6 +55,8 @@ private:
     QString m_deleteInvoiceButtonMsg;
     QString m_addInvoiceButtonMsg;
     QString m_backButtonMsg;
+    QString m_generateDocumentMsg;
+    QString m_invoiceFileFormat;
 
     static const quint16 InvoiceIdColumn = 0;
     static const quint16 CustomerNameColumn = 1;

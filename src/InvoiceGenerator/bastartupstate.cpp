@@ -50,6 +50,7 @@ void BAStartUpState::handle(UI_EVENTS event, QVariant data)
         break;
     case UIE_STARTUP_PROCEED:
         m_engine.storeInvoiceDataNow();
+        m_engine.switchState(BAS_INVOICE_LIST);
         break;
     case UIE_OPEN_GOODS_DB:
         m_engine.switchState(BAS_GOODS_DB);

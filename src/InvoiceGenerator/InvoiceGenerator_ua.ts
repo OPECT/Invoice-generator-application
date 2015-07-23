@@ -2,6 +2,19 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="en_US">
 <context>
+    <name>BAInvoiceListState</name>
+    <message>
+        <location filename="bautils.cpp" line="20"/>
+        <source>kg</source>
+        <translation>кг</translation>
+    </message>
+    <message>
+        <location filename="bautils.cpp" line="21"/>
+        <source>num.</source>
+        <translation>шт.</translation>
+    </message>
+</context>
+<context>
     <name>MainWindow</name>
     <message>
         <location filename="mainwindow.ui" line="13"/>
@@ -94,12 +107,12 @@
         <translation>Введіть нову категорію</translation>
     </message>
     <message>
-        <location filename="bautils.cpp" line="9"/>
+        <location filename="bautils.cpp" line="10"/>
         <source>kg</source>
         <translation>кг</translation>
     </message>
     <message>
-        <location filename="bautils.cpp" line="10"/>
+        <location filename="bautils.cpp" line="11"/>
         <source>num.</source>
         <translation>шт.</translation>
     </message>
@@ -158,39 +171,48 @@
 <context>
     <name>QTInvoiceListWindow</name>
     <message>
-        <location filename="qtinvoicelistwindow.cpp" line="12"/>
+        <location filename="qtinvoicelistwindow.cpp" line="13"/>
         <source>Invoice Id</source>
-        <translation type="unfinished"></translation>
+        <translation>Номер накладної</translation>
     </message>
     <message>
-        <location filename="qtinvoicelistwindow.cpp" line="13"/>
+        <location filename="qtinvoicelistwindow.cpp" line="14"/>
         <source>Customer</source>
-        <translation type="unfinished"></translation>
+        <translation>Замовник</translation>
     </message>
     <message>
-        <location filename="qtinvoicelistwindow.cpp" line="13"/>
+        <location filename="qtinvoicelistwindow.cpp" line="14"/>
         <source>Number of Items</source>
-        <translation type="unfinished"></translation>
+        <translation>К-сть елементів</translation>
     </message>
     <message>
-        <location filename="qtinvoicelistwindow.cpp" line="14"/>
+        <location filename="qtinvoicelistwindow.cpp" line="15"/>
         <source>Generate</source>
-        <translation type="unfinished"></translation>
+        <translation>Зберегти</translation>
     </message>
     <message>
-        <location filename="qtinvoicelistwindow.cpp" line="14"/>
+        <location filename="qtinvoicelistwindow.cpp" line="15"/>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Видалити</translation>
     </message>
     <message>
-        <location filename="qtinvoicelistwindow.cpp" line="15"/>
+        <location filename="qtinvoicelistwindow.cpp" line="16"/>
         <source>Add Invoice</source>
-        <translation type="unfinished"></translation>
+        <translation>Додати накладну</translation>
     </message>
     <message>
-        <location filename="qtinvoicelistwindow.cpp" line="15"/>
+        <location filename="qtinvoicelistwindow.cpp" line="16"/>
         <source>Back</source>
-        <translation type="unfinished">Назад</translation>
+        <translation>Назад</translation>
+    </message>
+    <message>
+        <location filename="qtinvoicelistwindow.cpp" line="17"/>
+        <source>Generate new document</source>
+        <translation>Зберегти документ</translation>
+    </message>
+    <message>
+        <source>Invoice File</source>
+        <translation type="vanished">Файли накладних</translation>
     </message>
 </context>
 <context>
@@ -241,12 +263,12 @@
         <translation>Вихід</translation>
     </message>
     <message>
-        <location filename="bautils.cpp" line="19"/>
+        <location filename="bautils.cpp" line="30"/>
         <source>None</source>
         <translation>Пусто</translation>
     </message>
     <message>
-        <location filename="bautils.cpp" line="20"/>
+        <location filename="bautils.cpp" line="31"/>
         <source>Standard Invoice</source>
         <translation>Стаднартна накладна</translation>
     </message>
