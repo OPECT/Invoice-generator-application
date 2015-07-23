@@ -8,6 +8,7 @@
 class BAState;
 class InvoiceData;
 class InvoiceItem;
+class InvoiceHandlerCreator;
 
 enum GOOT_TYPE { GT_KG = 0, GT_NUM  = 1 };
 enum INVOICE_TYPE { IT_NONE = 0, IT_SimpleInvoice = 1 };
@@ -24,11 +25,15 @@ enum TABLE_NAMES { TN_CUSTOMERS = 0, TN_GOODS };
 typedef QMap<GOOT_TYPE, QString> GoodTypeList;
 typedef QMap<INVOICE_TYPE, QString> InvoiceTypeList;
 typedef QMap<INVOICE_TYPE, QString> InvoiceTypeFileList;
+typedef QMap<INVOICE_TYPE, InvoiceHandlerCreator*> InvoiceHandlerCreators;
 typedef QMap<TABLE_NAMES, QString> TableNamesList;
 
 typedef QMap<BUSSINESS_APPLICATION_STATE, BAState*>  ApplicationStates;
 
 typedef QList<InvoiceData> InvoiceList;
 typedef QList<InvoiceItem> InvoiceDataList;
+
+typedef QListIterator<InvoiceData> InvoiceListIterator;
+typedef QListIterator<InvoiceItem> InvoiceItemsIterator;
 
 #endif // BATYPES_H

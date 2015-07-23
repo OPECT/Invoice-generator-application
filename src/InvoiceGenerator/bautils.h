@@ -7,10 +7,12 @@
 namespace Utils
 {
     GoodTypeList goodTypes();
+    GoodTypeList invoiceGoodTypes();
     InvoiceTypeList invoiceTypes();
     InvoiceTypeFileList invoiceTypeFiles();
     QStringList dataBaseExtensions();
     TableNamesList tableNames();
+    InvoiceHandlerCreators invoiceCreators();
 }
 
 #endif // BAUTILS_H
