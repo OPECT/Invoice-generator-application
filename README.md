@@ -13,3 +13,7 @@ It contains:
 3) UML diagrams which represents system design
 4) Sources
 5) Unit Tests
+
+*** Known Issues ***
+1) Make sure that decimal separator of your system is set to "."
+To set it go to "Control Panel -> Regional Settings -> Advanced" and set "." for decimal separator.
