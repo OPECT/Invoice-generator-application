@@ -31,7 +31,6 @@ void BAModifyDBBaseState::handle(UI_EVENTS event, QVariant data)
     switch(event)
     {
     case UIE_BACK:
-        m_engine.storeDataBaseDataNow();
         m_engine.switchState(BAS_START_UP);
         break;
     case UIE_DATA_BASE_SAVED:
@@ -41,6 +40,8 @@ void BAModifyDBBaseState::handle(UI_EVENTS event, QVariant data)
             newFileName += Utils::dataBaseExtensions().at(0);
         }
         QFile::copy(m_engine.dataBaseData().dataBaseFile(), newFileName);
+        m_engine.dataBaseData().dataBaseFile(newFileName);
+        m_engine.storeDataBaseDataNow();
         break;
     case UIE_NEW_DATABASE_LOADED:
         m_engine.dataBaseData().dataBaseFile(data.toString());

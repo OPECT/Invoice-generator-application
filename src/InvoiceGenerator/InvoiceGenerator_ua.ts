@@ -42,6 +42,42 @@
         <source>create table %1 (%2)</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location filename="databasedata.cpp" line="4"/>
+        <source>id</source>
+        <translation>Код</translation>
+    </message>
+    <message>
+        <location filename="databasedata.cpp" line="4"/>
+        <location filename="databasedata.cpp" line="6"/>
+        <source>Name</source>
+        <translation>Назва</translation>
+    </message>
+    <message>
+        <location filename="databasedata.cpp" line="5"/>
+        <source>Type</source>
+        <translation>Тип</translation>
+    </message>
+    <message>
+        <location filename="databasedata.cpp" line="5"/>
+        <source>Category</source>
+        <translation>Категорія</translation>
+    </message>
+    <message>
+        <location filename="databasedata.cpp" line="6"/>
+        <source>Price</source>
+        <translation>Ціна</translation>
+    </message>
+    <message>
+        <location filename="databasedata.cpp" line="7"/>
+        <source>Region</source>
+        <translation>Регіон</translation>
+    </message>
+    <message>
+        <location filename="databasedata.cpp" line="7"/>
+        <source>Multiplier</source>
+        <translation>Коефіціент</translation>
+    </message>
 </context>
 <context>
     <name>QTAddCustomerDialog</name>
@@ -122,7 +158,7 @@
     <message>
         <location filename="qtcustomerdatabasewindow.cpp" line="13"/>
         <source>Add New Customer</source>
-        <translation>Введіть нового замовника</translation>
+        <translation>Додати нового замовника</translation>
     </message>
 </context>
 <context>
@@ -131,7 +167,7 @@
         <location filename="qtdatabasewindow.cpp" line="18"/>
         <location filename="qtdatabasewindow.cpp" line="20"/>
         <source>Open Data Base</source>
-        <translation>ВІдкрити базу даних</translation>
+        <translation>Відкрити базу даних</translation>
     </message>
     <message>
         <location filename="qtdatabasewindow.cpp" line="18"/>
@@ -212,7 +248,7 @@
     </message>
     <message>
         <source>Invoice File</source>
-        <translation type="vanished">Файли накладних</translation>
+        <translation type="vanished">Файл накладних</translation>
     </message>
 </context>
 <context>

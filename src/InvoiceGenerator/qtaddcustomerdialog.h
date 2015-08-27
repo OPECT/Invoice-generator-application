@@ -23,7 +23,7 @@ public:
 
     QString customerName() { return m_customerNameLine->getEditText(); }
     QString customerRegion() { return m_customerRegionCombo->currentText(); }
-    quint32 customerDiscount() { return m_customerNameLine->getEditText().toUInt(); }
+    quint32 customerDiscount() { return m_customerDiscountLine->getEditText().toUInt(); }
 
 public slots:
     void itemChoosed(qint32 index);
